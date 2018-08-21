@@ -1,2 +1,6 @@
 # skzh
-山科智汇zigbee源码
+zigbee源码
+
+实验手册
+
+开发板android
