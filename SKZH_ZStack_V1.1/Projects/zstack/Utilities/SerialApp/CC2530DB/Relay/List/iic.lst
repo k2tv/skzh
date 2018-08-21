@@ -1,0 +1,3079 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         28/Dec/2015  11:45:29 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\Seri #
+#                          alApp\Public\iic.c                                 #
+#    Command line       =  -f F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\S #
+#                          erialApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev #
+#                          .cfg (-DCPU32MHZ -DROOT=__near_func                #
+#                          -DMAC_CFG_TX_DATA_MAX=3 -DMAC_CFG_TX_MAX=6         #
+#                          -DMAC_CFG_RX_MAX=3) -f F:\SKZH_ZStack_V1.1\Project #
+#                          s\zstack\Utilities\SerialApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0  #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xAA41                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\SKZH_ZStack_V1.1\Project #
+#                          s\zstack\Utilities\SerialApp\Public\iic.c -D       #
+#                          NWK_AUTO_POLL -D HAL_UART=TRUE -D                  #
+#                          SERIAL_APP_PORT=0 -D xPOWER_SAVING -D NV_INIT -D   #
+#                          NV_RESTORE -D RELAY -lC F:\SKZH_ZStack_V1.1\Projec #
+#                          ts\zstack\Utilities\SerialApp\CC2530DB\Relay\List\ #
+#                           -lA F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities #
+#                          \SerialApp\CC2530DB\Relay\List\ --diag_suppress    #
+#                          Pe001,Pa010 -o F:\SKZH_ZStack_V1.1\Projects\zstack #
+#                          \Utilities\SerialApp\CC2530DB\Relay\Obj\ -e        #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\S #
+#                          erialApp\CC2530DB\ -I F:\SKZH_ZStack_V1.1\Projects #
+#                          \zstack\Utilities\SerialApp\CC2530DB\..\Relay\ -I  #
+#                          F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\Seri #
+#                          alApp\CC2530DB\..\Public\ -I                       #
+#                          F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\Seri #
+#                          alApp\CC2530DB\..\..\..\ZMain\TI2530DB\ -I         #
+#                          F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\Seri #
+#                          alApp\CC2530DB\..\..\..\..\..\Components\hal\inclu #
+#                          de\ -I F:\SKZH_ZStack_V1.1\Projects\zstack\Utiliti #
+#                          es\SerialApp\CC2530DB\..\..\..\..\..\Components\ha #
+#                          l\target\CC2530EB\ -I F:\SKZH_ZStack_V1.1\Projects #
+#                          \zstack\Utilities\SerialApp\CC2530DB\..\..\..\..\. #
+#                          .\Components\mac\include\ -I                       #
+#                          F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\Seri #
+#                          alApp\CC2530DB\..\..\..\..\..\Components\mac\high_ #
+#                          level\ -I F:\SKZH_ZStack_V1.1\Projects\zstack\Util #
+#                          ities\SerialApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\low_level\srf04\ -I                           #
+#                          F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\Seri #
+#                          alApp\CC2530DB\..\..\..\..\..\Components\mac\low_l #
+#                          evel\srf04\single_chip\ -I                         #
+#                          F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\Seri #
+#                          alApp\CC2530DB\..\..\..\..\..\Components\mt\ -I    #
+#                          F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\Seri #
+#                          alApp\CC2530DB\..\..\..\..\..\Components\osal\incl #
+#                          ude\ -I F:\SKZH_ZStack_V1.1\Projects\zstack\Utilit #
+#                          ies\SerialApp\CC2530DB\..\..\..\..\..\Components\s #
+#                          ervices\saddr\ -I F:\SKZH_ZStack_V1.1\Projects\zst #
+#                          ack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\services\sdata\ -I                        #
+#                          F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\Seri #
+#                          alApp\CC2530DB\..\..\..\..\..\Components\stack\af\ #
+#                           -I F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\ #
+#                          SerialApp\CC2530DB\..\..\..\..\..\Components\stack #
+#                          \nwk\ -I F:\SKZH_ZStack_V1.1\Projects\zstack\Utili #
+#                          ties\SerialApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          stack\sapi\ -I F:\SKZH_ZStack_V1.1\Projects\zstack #
+#                          \Utilities\SerialApp\CC2530DB\..\..\..\..\..\Compo #
+#                          nents\stack\sec\ -I F:\SKZH_ZStack_V1.1\Projects\z #
+#                          stack\Utilities\SerialApp\CC2530DB\..\..\..\..\..\ #
+#                          Components\stack\sys\ -I                           #
+#                          F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\Seri #
+#                          alApp\CC2530DB\..\..\..\..\..\Components\stack\zdo #
+#                          \ -I F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities #
+#                          \SerialApp\CC2530DB\..\..\..\..\..\Components\zmac #
+#                          \ -I F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities #
+#                          \SerialApp\CC2530DB\..\..\..\..\..\Components\zmac #
+#                          \f8w\ -Ohz                                         #
+#    List file          =  F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\Seri #
+#                          alApp\CC2530DB\Relay\List\iic.lst                  #
+#    Object file        =  F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\Seri #
+#                          alApp\CC2530DB\Relay\Obj\iic.r51                   #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\SKZH_ZStack_V1.1\Projects\zstack\Utilities\SerialApp\Public\iic.c
+      1          /**********************************************************************************************************
+      2          * 文 件 名：iic.C
+      3          * 功    能：此程序是I2C操作平台（主方式的软件平台）的底层的C子程序,如发送数据及接收数据,应答位发送
+      4          * 硬件连接：采用CC2530的I/O口模拟IIC的SCL和SDA
+      5          *
+      6          *           P1.0 ------ SCL
+      7          *           P1.1 ------ SDA
+      8          *           
+      9          * 版    本：V1.0
+     10          * 
+     11          * 
+     12          * 
+     13          **************************************************************************************************************/
+     14          #include "ioCC2530.h"
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfe
+   \   unsigned char volatile __sfr P1DIR
+   \                     P1DIR:
+   \   000000                DS 1
+     15          #include "hal_mcu.h"
+     16          
+     17          #define SCL          P1_0 
+     18          #define SDA          P1_1
+     19          
+     20          #define IO_DIR_PORT_PIN(port, pin, dir)  \
+     21             do {                                  \
+     22                if (dir == IO_OUT)                 \
+     23                   P##port##DIR |= (0x01<<(pin));  \
+     24                else                               \
+     25                   P##port##DIR &= ~(0x01<<(pin)); \
+     26             }while(0)
+     27          
+     28          
+     29          #define IO_IN   0
+     30          #define IO_OUT  1
+     31          
+     32          //#define TMP275_I2CADDR  0x92
+     33          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     34          static uint8 ack;	         /*应答标志位*/
+   \                     ack:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     35          
+     36          void QWait(void);
+     37          //static void Wait(unsigned int ms);
+     38          static void Start_I2c(void);
+     39          static void Stop_I2c(void);
+     40          static void  SendByte(uint8 c);
+     41          uint8  RcvByte(void);
+     42          static void Ack_I2c(uint8 a);
+     43          static uint8 ISendByte(uint8 sla,uint8 c);
+     44          static uint8 ISendStr(uint8 sla,uint8 suba,uint8 *s,uint8 no);
+     45          uint8 IRcvStr(uint8 sla,uint8 suba,uint8 *s,uint8 no);
+     46          //static uint8 IRcvStr_test(uint8 sla,uint8 *s,uint8 no);
+     47          //float iicreadtpm275(void);
+     48          void ledInit(void);
+     49          void RelayInit(void);
+     50          void FLASHLED(uint8 led);  
+     51          void FLASHLED4(uint8 FLASHnum);   //LED4闪烁
+     52          void FLASHLED5(uint8 FLASHnum);   //LED5闪烁
+     53          void LED(uint8 led,uint8 operation);
+     54          void Buzzer(uint8 operation);
+     55          uint8 Relay(uint8 cmd);
+     56          uint8 SRelay(uint8 cmd);
+     57          uint8 IRcvByte(uint8 sla,uint8 *c);
+     58          uint8 Key(void);
+     59          void Relays(uint8 relay,uint8 operation);
+     60          uint8 write24L01(uint8 *data,uint8 addr,uint8 Len);
+     61          uint8 read24L01byte(uint8 addr);
+     62          uint8 VoltageOutput(uint16 Voltage,uint8 Port);
+     63          void RelayInit(void);
+     64          char s_write_byte(unsigned char value);
+     65          char s_read_byte(unsigned char ack);
+     66          
+     67          
+     68          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     69          uint8 ledstate   = 0;
+   \                     ledstate:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     70          uint8 Relaystate = 0;
+   \                     Relaystate:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     71          void QWait()     //1us的延时
+   \                     QWait:
+     72          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     73              asm("NOP");asm("NOP");
+   \   000000   00           NOP
+   \   000001   00           NOP
+     74              asm("NOP");asm("NOP");
+   \   000002   00           NOP
+   \   000003   00           NOP
+     75              asm("NOP");asm("NOP");
+   \   000004   00           NOP
+   \   000005   00           NOP
+     76              asm("NOP");asm("NOP");
+   \   000006   00           NOP
+   \   000007   00           NOP
+     77              asm("NOP");asm("NOP");
+   \   000008   00           NOP
+   \   000009   00           NOP
+     78              asm("NOP");
+   \   00000A   00           NOP
+     79          
+     80          }
+   \   00000B   02....       LJMP    ?BRET
+     81          
+     82          //static void Wait(unsigned int ms)
+     83          //{
+     84                              
+     85          //   unsigned char g,k;
+     86           //  while(ms)
+     87           //  {
+     88                
+     89          	//  for(g=0;g<=167;g++)
+     90          	 //  {
+     91          	 //    for(k=0;k<=48;k++);
+     92          	 //  }
+     93               // ms--;                            
+     94             //}
+     95          //} 
+     96          
+     97          /*******************************************************************
+     98                               起动总线函数               
+     99          函数原型: void  Start_I2c();  
+    100          
+    101          功    能: 启动I2C总线,即发送I2C起始条件.
+    102            
+    103          ********************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    104          static void Start_I2c()
+   \                     Start_I2c:
+    105          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    106            IO_DIR_PORT_PIN(1, 0, IO_OUT);    //设置P1.0为输出
+   \   000004   12....       LCALL   ??Subroutine29_0 & 0xFFFF
+    107            IO_DIR_PORT_PIN(1, 1, IO_OUT);    //设置P1.1为输出
+    108            
+    109            SDA=1;   /*发送起始条件的数据信号*/
+   \                     ??CrossCallReturnLabel_46:
+   \   000007   D291         SETB    0x90.1
+    110            asm("NOP");
+   \   000009   12....       LCALL   ?Subroutine5 & 0xFFFF
+    111            SCL=1;
+    112            QWait();    /*起始条件建立时间大于4.7us,延时*/
+    113            QWait();
+    114            QWait();
+    115            QWait();
+    116            QWait();    
+    117            SDA=0;   /*发送起始信号*/
+   \                     ??CrossCallReturnLabel_29:
+   \   00000C   C291         CLR     0x90.1
+    118            QWait();    /* 起始条件锁定时间大于4μs*/
+   \   00000E                ; Setup parameters for call to function QWait
+   \   00000E   12....       LCALL   ?Subroutine3 & 0xFFFF
+    119            QWait();
+    120            QWait();
+    121            QWait();
+    122            QWait();       
+    123            SCL=0;   /*钳住I2C总线，准备发送或接收数据 */
+    124            asm("NOP");
+    125            asm("NOP");
+    126          }
+   \                     ??CrossCallReturnLabel_0:
+   \   000011   02....       LJMP    ??Subroutine37_0 & 0xFFFF
+   \   000014                REQUIRE P1DIR
+   \   000014                REQUIRE _A_P1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   00           NOP
+   \   000001   D290         SETB    0x90.0
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                REQUIRE ??Subroutine27_0
+   \   000003                ; // Fall through to label ??Subroutine27_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine27_0:
+   \   000000   12....       LCALL   ?Subroutine22 & 0xFFFF
+   \                     ??CrossCallReturnLabel_33:
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003   12....       LCALL   ?Subroutine23 & 0xFFFF
+   \                     ??CrossCallReturnLabel_35:
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine23:
+   \   000000   12....       LCALL   ?Subroutine26 & 0xFFFF
+   \                     ??CrossCallReturnLabel_41:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine26:
+   \   000000   12....       LCALL   ??QWait?relay
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003   12....       LCALL   ??QWait?relay
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine22:
+   \   000000   12....       LCALL   ?Subroutine25 & 0xFFFF
+   \                     ??CrossCallReturnLabel_39:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine25:
+   \   000000   12....       LCALL   ?Subroutine26 & 0xFFFF
+   \                     ??CrossCallReturnLabel_42:
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003   12....       LCALL   ??QWait?relay
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine29_0:
+   \   000000   43FE01       ORL     0xfe,#0x1
+   \   000003   43FE02       ORL     0xfe,#0x2
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine19:
+   \   000000   12....       LCALL   ?Subroutine25 & 0xFFFF
+   \                     ??CrossCallReturnLabel_40:
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003                ; Setup parameters for call to function QWait
+   \   000003   12....       LCALL   ?Subroutine26 & 0xFFFF
+   \                     ??CrossCallReturnLabel_43:
+   \   000006   C290         CLR     0x90.0
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine37_0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   12....       LCALL   ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_26:
+   \   000003   00           NOP
+   \   000004   00           NOP
+   \   000005   22           RET
+    127          
+    128          /*******************************************************************
+    129                                结束总线函数               
+    130          函数原型: void  Stop_I2c();  
+    131          
+    132          功    能: 结束I2C总线,即发送I2C结束条件.
+    133            
+    134          ********************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    135          static void Stop_I2c()
+   \                     Stop_I2c:
+    136          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    137            IO_DIR_PORT_PIN(1, 0, IO_OUT);    //设置P1.0为输出
+   \   000004   12....       LCALL   ??Subroutine29_0 & 0xFFFF
+    138            IO_DIR_PORT_PIN(1, 1, IO_OUT);    //设置P1.1为输出
+    139            SDA=0;  /*发送结束条件的数据信号*/
+   \                     ??CrossCallReturnLabel_47:
+   \   000007   C291         CLR     0x90.1
+    140            asm("NOP");   /*发送结束条件的时钟信号*/
+   \   000009   12....       LCALL   ?Subroutine5 & 0xFFFF
+    141            SCL=1;  /*结束条件建立时间大于4μs*/
+    142            QWait();
+    143            QWait();
+    144            QWait();
+    145            QWait();
+    146            QWait();
+    147            SDA=1;  /*发送I2C总线结束信号*/
+   \                     ??CrossCallReturnLabel_30:
+   \   00000C   D291         SETB    0x90.1
+    148            QWait();
+   \   00000E                ; Setup parameters for call to function QWait
+   \   00000E   12....       LCALL   ?Subroutine7 & 0xFFFF
+    149            QWait();
+    150            QWait();
+    151            QWait();
+   \                     ??CrossCallReturnLabel_5:
+   \   000011                ; Setup parameters for call to function QWait
+   \   000011   12....       LCALL   ??QWait?relay
+    152          }
+   \   000014   02....       LJMP    ??Subroutine37_0 & 0xFFFF
+   \   000017                REQUIRE P1DIR
+   \   000017                REQUIRE _A_P1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   12....       LCALL   ?Subroutine22 & 0xFFFF
+   \                     ??CrossCallReturnLabel_34:
+   \   000003   22           RET
+    153          
+    154          
+    155          /*******************************************************************
+    156                           字节数据传送函数               
+    157          函数原型: void  SendByte(uchar c);
+    158          
+    159          功    能: 将数据c发送出去,可以是地址,也可以是数据,发完后等待应答,并对
+    160                    此状态位进行操作.(不应答或非应答都使ack=0 假)     
+    161                    发送数据正常，ack=1; ack=0表示被控器无应答或损坏。
+    162          ********************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    163          static void  SendByte(uint8 c)
+   \                     SendByte:
+    164          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FF           MOV     R7,A
+    165           uint8 BitCnt;
+    166           IO_DIR_PORT_PIN(1, 0, IO_OUT);    //设置P1.0为输出
+   \   000007   12....       LCALL   ??Subroutine29_0 & 0xFFFF
+    167           IO_DIR_PORT_PIN(1, 1, IO_OUT);    //设置P1.1为输出
+    168           for(BitCnt=0;BitCnt<8;BitCnt++)  /*要传送的数据长度为8位*/
+   \                     ??CrossCallReturnLabel_48:
+   \   00000A   7E00         MOV     R6,#0x0
+    169              {
+    170               if((c<<BitCnt)&0x80)SDA=1;   /*判断发送位*/
+   \                     ??SendByte_0:
+   \   00000C   8F..         MOV     ?V0 + 0,R7
+   \   00000E   75..00       MOV     ?V0 + 1,#0x0
+   \   000011   EE           MOV     A,R6
+   \   000012   78..         MOV     R0,#?V0 + 0
+   \   000014   12....       LCALL   ?S_SHL
+   \   000017   E5..         MOV     A,?V0 + 0
+   \   000019   5480         ANL     A,#0x80
+   \   00001B   6004         JZ      ??SendByte_1
+   \   00001D   D291         SETB    0x90.1
+   \   00001F   8002         SJMP    ??SendByte_2
+    171                 else  SDA=0;                
+   \                     ??SendByte_1:
+   \   000021   C291         CLR     0x90.1
+    172                asm("NOP");
+   \                     ??SendByte_2:
+   \   000023   00           NOP
+    173                asm("NOP");
+   \   000024   00           NOP
+    174                asm("NOP");
+   \   000025   00           NOP
+    175               SCL=1;               /*置时钟线为高，通知被控器开始接收数据位*/
+   \   000026   12....       LCALL   ?Subroutine4 & 0xFFFF
+    176                QWait(); 
+    177                QWait();               /*保证时钟高电平周期大于4μs*/
+    178                QWait();
+    179                QWait();
+    180                QWait();         
+    181               SCL=0; 
+    182              }    
+   \                     ??CrossCallReturnLabel_2:
+   \   000029   0E           INC     R6
+   \   00002A   EE           MOV     A,R6
+   \   00002B   C3           CLR     C
+   \   00002C   9408         SUBB    A,#0x8
+   \   00002E   40DC         JC      ??SendByte_0
+    183              QWait();
+   \   000030                ; Setup parameters for call to function QWait
+   \   000030   12....       LCALL   ?Subroutine7 & 0xFFFF
+    184              QWait();
+    185              QWait();
+    186              SDA=1;               /*8位发送完后释放数据线，准备接收应答位*/
+   \                     ??CrossCallReturnLabel_6:
+   \   000033   D291         SETB    0x90.1
+    187              asm("NOP");
+   \   000035   00           NOP
+    188              IO_DIR_PORT_PIN(1, 1, IO_IN);  
+   \   000036   53FEFD       ANL     0xfe,#0xfd
+    189              SCL=1;
+   \   000039   D290         SETB    0x90.0
+    190              QWait();          
+   \   00003B                ; Setup parameters for call to function QWait
+   \   00003B   12....       LCALL   ??QWait?relay
+    191              //QWait();
+    192              //QWait();
+    193              //QWait();
+    194              if(SDA==1)ack=0;     
+    195              else ack=1;        /*判断是否接收到应答信号*/
+   \   00003E   A291         MOV     C,0x90.1
+   \   000040   4004         JC      ??SendByte_3
+   \   000042   D2F0         SETB    B.0
+   \   000044   8002         SJMP    ??SendByte_4
+   \                     ??SendByte_3:
+   \   000046   C2F0         CLR     B.0
+   \                     ??SendByte_4:
+   \   000048   A2F0         MOV     C,B.0
+   \   00004A   E4           CLR     A
+   \   00004B   33           RLC     A
+   \   00004C   90....       MOV     DPTR,#ack
+   \   00004F   F0           MOVX    @DPTR,A
+    196              SCL=0;   
+   \   000050   12....       LCALL   ?Subroutine8 & 0xFFFF
+    197              QWait();
+    198              QWait();
+    199              IO_DIR_PORT_PIN(1, 1, IO_OUT);
+    200          }
+   \                     ??CrossCallReturnLabel_8:
+   \   000053                REQUIRE ?Subroutine1
+   \   000053                REQUIRE P1DIR
+   \   000053                REQUIRE _A_P1
+   \   000053                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F02         MOV     R7,#0x2
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   C290         CLR     0x90.0
+   \   000002                ; Setup parameters for call to function QWait
+   \   000002                ; Setup parameters for call to function QWait
+   \   000002   12....       LCALL   ?Subroutine23 & 0xFFFF
+   \                     ??CrossCallReturnLabel_38:
+   \   000005   43FE02       ORL     0xfe,#0x2
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   D290         SETB    0x90.0
+   \   000002                ; Setup parameters for call to function QWait
+   \   000002                ; Setup parameters for call to function QWait
+   \   000002                ; Setup parameters for call to function QWait
+   \   000002   12....       LCALL   ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_25:
+   \   000005   22           RET
+    201          
+    202          /*******************************************************************
+    203                           字节数据传送函数               
+    204          函数原型: uchar  RcvByte();
+    205          
+    206          功    能: 用来接收从器件传来的数据,并判断总线错误(不发应答信号)，
+    207                    发完后请用应答函数。  
+    208          ********************************************************************/	
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    209          static uint8  RcvByte()
+   \                     RcvByte:
+    210          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    211            uint8 retc;
+    212            uint8 BitCnt;
+    213            IO_DIR_PORT_PIN(1, 0, IO_OUT);    //设置P1.0为输出
+   \   000005   43FE01       ORL     0xfe,#0x1
+    214           
+    215            retc=0; 
+   \   000008   7E00         MOV     R6,#0x0
+    216           // SDA=1;             /*置数据线为输入方式*/
+    217            IO_DIR_PORT_PIN(1, 1, IO_IN);
+   \   00000A   53FEFD       ANL     0xfe,#0xfd
+    218            for(BitCnt=0;BitCnt<8;BitCnt++)
+   \   00000D   7F08         MOV     R7,#0x8
+    219                {
+    220                  asm("NOP");          
+   \                     ??RcvByte_0:
+   \   00000F   00           NOP
+    221                  SCL=0;       /*置时钟线为低，准备接收数据位*/
+   \   000010   C290         CLR     0x90.0
+    222                  QWait();
+   \   000012                ; Setup parameters for call to function QWait
+   \   000012   12....       LCALL   ??Subroutine27_0 & 0xFFFF
+    223                  QWait();         /*时钟低电平周期大于4.7μs*/
+    224                  QWait();
+    225                  QWait();
+    226                  QWait();
+    227                  SCL=1;       /*置时钟线为高使数据线上数据有效*/
+   \                     ??CrossCallReturnLabel_31:
+   \   000015   D290         SETB    0x90.0
+    228                  QWait();
+   \   000017                ; Setup parameters for call to function QWait
+   \   000017   12....       LCALL   ?Subroutine23 & 0xFFFF
+    229                  QWait();
+    230                  retc=retc<<1;
+   \                     ??CrossCallReturnLabel_36:
+   \   00001A   EE           MOV     A,R6
+   \   00001B   C3           CLR     C
+   \   00001C   33           RLC     A
+   \   00001D   FE           MOV     R6,A
+    231                  if(SDA==1)retc=retc+1; /*读数据位,接收的数据位放入retc中 */
+   \   00001E   A291         MOV     C,0x90.1
+   \   000020   5001         JNC     ??RcvByte_1
+   \   000022   0E           INC     R6
+    232                  QWait();
+   \                     ??RcvByte_1:
+   \   000023                ; Setup parameters for call to function QWait
+   \   000023   12....       LCALL   ?Subroutine23 & 0xFFFF
+    233                  QWait(); 
+    234                }
+   \                     ??CrossCallReturnLabel_37:
+   \   000026   1F           DEC     R7
+   \   000027   EF           MOV     A,R7
+   \   000028   70E5         JNZ     ??RcvByte_0
+    235            SCL=0;    
+   \   00002A   12....       LCALL   ?Subroutine8 & 0xFFFF
+    236            QWait();
+    237            QWait();
+    238            IO_DIR_PORT_PIN(1, 1, IO_OUT);
+    239            return(retc);
+   \                     ??CrossCallReturnLabel_9:
+   \   00002D   EE           MOV     A,R6
+   \   00002E   F9           MOV     R1,A
+   \   00002F   80..         SJMP    ??Subroutine28_0
+   \   000031                REQUIRE P1DIR
+   \   000031                REQUIRE _A_P1
+    240          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine28_0:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    241          
+    242          /********************************************************************
+    243                               应答子函数
+    244          原型:  void Ack_I2c(uint a);
+    245           
+    246          功能:主控器进行应答信号,(可以是应答或非应答信号)
+    247          ********************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    248          static void Ack_I2c(uint8 a)
+   \                     Ack_I2c:
+    249          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+    250            IO_DIR_PORT_PIN(1, 0, IO_OUT);    //设置P1.0为输出
+   \   000006   12....       LCALL   ??Subroutine29_0 & 0xFFFF
+    251            IO_DIR_PORT_PIN(1, 1, IO_OUT);    //设置P1.1为输出
+    252            if(a==0)SDA=0;     /*在此发出应答或非应答信号 */
+   \                     ??CrossCallReturnLabel_49:
+   \   000009   7004         JNZ     ??Ack_I2c_0
+   \   00000B   C291         CLR     0x90.1
+   \   00000D   8002         SJMP    ??Ack_I2c_1
+    253            else SDA=1;
+   \                     ??Ack_I2c_0:
+   \   00000F   D291         SETB    0x90.1
+    254            QWait();
+   \                     ??Ack_I2c_1:
+   \   000011                ; Setup parameters for call to function QWait
+   \   000011   12....       LCALL   ??QWait?relay
+    255            //QWait();      //change by wu 2011.3.1
+    256            //QWait();      
+    257            SCL=1;
+   \   000014   12....       LCALL   ?Subroutine4 & 0xFFFF
+    258            QWait();
+    259            QWait();              /*时钟低电平周期大于4μs*/
+    260            QWait();
+    261            QWait();
+    262            QWait();  
+    263            SCL=0;                /*清时钟线，钳住I2C总线以便继续接收*/
+    264            QWait();
+   \                     ??CrossCallReturnLabel_3:
+   \   000017                ; Setup parameters for call to function QWait
+   \   000017   12....       LCALL   ??QWait?relay
+    265            //QWait();  
+    266            IO_DIR_PORT_PIN(1, 1, IO_IN);// change by wu 2011.3.1
+   \   00001A   53FEFD       ANL     0xfe,#0xfd
+    267          }
+   \   00001D   80..         SJMP    ??Subroutine28_0
+   \   00001F                REQUIRE P1DIR
+   \   00001F                REQUIRE _A_P1
+    268          
+    269          /*******************************************************************
+    270                              向无子地址器件发送字节数据函数               
+    271          函数原型: uint  ISendByte(uchar sla,ucahr c);
+    272          
+    273          功    能:  从启动总线到发送地址，数据，结束总线的全过程,从器件地址sla.
+    274                     如果返回1表示操作成功，否则操作有误。
+    275          
+    276          注    意： 使用前必须已结束总线。
+    277          ********************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    278          static uint8 ISendByte(uint8 sla,uint8 c)
+   \                     ISendByte:
+    279          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FF           MOV     R7,A
+   \   000007   EA           MOV     A,R2
+   \   000008   FE           MOV     R6,A
+    280             Start_I2c();               /*启动总线*/
+   \   000009                ; Setup parameters for call to function Start_I2c
+   \   000009   12....       LCALL   ??Start_I2c?relay
+    281             SendByte(sla);            /*发送器件地址*/
+   \   00000C                ; Setup parameters for call to function SendByte
+   \   00000C   12....       LCALL   ?Subroutine10 & 0xFFFF
+    282               if(ack==0)return(0);
+   \                     ??CrossCallReturnLabel_77:
+   \   00000F   7004         JNZ     ??ISendByte_0
+   \                     ??ISendByte_1:
+   \   000011   7900         MOV     R1,#0x0
+   \   000013   800B         SJMP    ??ISendByte_2
+    283             SendByte(c);               /*发送数据*/
+   \                     ??ISendByte_0:
+   \   000015                ; Setup parameters for call to function SendByte
+   \   000015   EE           MOV     A,R6
+   \   000016   12....       LCALL   ??Subroutine34_0 & 0xFFFF
+    284               if(ack==0)return(0);
+   \                     ??CrossCallReturnLabel_79:
+   \   000019   60F6         JZ      ??ISendByte_1
+    285            Stop_I2c();                 /*结束总线*/ 
+   \   00001B                ; Setup parameters for call to function Stop_I2c
+   \   00001B   12....       LCALL   ??Stop_I2c?relay
+    286            return(1);
+   \   00001E   7901         MOV     R1,#0x1
+   \                     ??ISendByte_2:
+   \   000020   80..         SJMP    ??Subroutine28_0
+    287          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   EF           MOV     A,R7
+   \   000001                REQUIRE ??Subroutine34_0
+   \   000001                ; // Fall through to label ??Subroutine34_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine34_0:
+   \   000000   F9           MOV     R1,A
+   \   000001                REQUIRE ??Subroutine35_0
+   \   000001                ; // Fall through to label ??Subroutine35_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine35_0:
+   \   000000   12....       LCALL   ??SendByte?relay
+   \   000003   90....       MOV     DPTR,#ack
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   22           RET
+    288          
+    289          /*******************************************************************
+    290                              向有子地址器件发送多字节数据函数               
+    291          函数原型: uint  ISendStr(uchar sla,uchar suba,ucahr *s,uchar no);  
+    292          
+    293          功    能: 从启动总线到发送地址，子地址,数据，结束总线的全过程,从器件
+    294                    地址sla，子地址suba，发送内容是s指向的内容，发送no个字节。
+    295                    如果返回1表示操作成功，否则操作有误。
+    296          
+    297          注    意：使用前必须已结束总线。
+    298          ********************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    299          static uint8 ISendStr(uint8 sla,uint8 suba,uint8 *s,uint8 no)
+   \                     ISendStr:
+    300          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV     ?V0 + 1,R1
+   \   000007   8A..         MOV     ?V0 + 0,R2
+   \   000009   EC           MOV     A,R4
+   \   00000A   FE           MOV     R6,A
+   \   00000B   ED           MOV     A,R5
+   \   00000C   FF           MOV     R7,A
+   \   00000D   8B..         MOV     ?V0 + 3,R3
+    301             uint8 i;
+    302          
+    303             Start_I2c();               /*启动总线*/
+   \   00000F                ; Setup parameters for call to function Start_I2c
+   \   00000F   12....       LCALL   ??Start_I2c?relay
+    304             SendByte(sla);            /*发送器件地址*/
+   \   000012                ; Setup parameters for call to function SendByte
+   \   000012   A9..         MOV     R1,?V0 + 1
+   \   000014   12....       LCALL   ??Subroutine35_0 & 0xFFFF
+    305               if(ack==0)return(0);
+   \                     ??CrossCallReturnLabel_84:
+   \   000017   7004         JNZ     ??ISendStr_0
+   \                     ??ISendStr_1:
+   \   000019   7900         MOV     R1,#0x0
+   \   00001B   802D         SJMP    ??ISendStr_2
+    306             SendByte(suba);            /*发送器件子地址*/
+   \                     ??ISendStr_0:
+   \   00001D                ; Setup parameters for call to function SendByte
+   \   00001D   A9..         MOV     R1,?V0 + 0
+   \   00001F   12....       LCALL   ??Subroutine35_0 & 0xFFFF
+    307               if(ack==0)return(0);
+   \                     ??CrossCallReturnLabel_85:
+   \   000022   60F5         JZ      ??ISendStr_1
+    308          
+    309             for(i=0;i<no;i++)
+   \   000024   75..00       MOV     ?V0 + 2,#0x0
+   \   000027   8015         SJMP    ??ISendStr_3
+    310              {   
+    311               SendByte(*s);               /*发送数据*/
+   \                     ??ISendStr_4:
+   \   000029                ; Setup parameters for call to function SendByte
+   \   000029   8E82         MOV     DPL,R6
+   \   00002B   8F83         MOV     DPH,R7
+   \   00002D   E0           MOVX    A,@DPTR
+   \   00002E   12....       LCALL   ??Subroutine34_0 & 0xFFFF
+    312                 if(ack==0)return(0);
+   \                     ??CrossCallReturnLabel_80:
+   \   000031   60E6         JZ      ??ISendStr_1
+    313               s++;
+   \   000033   8E82         MOV     DPL,R6
+   \   000035   8F83         MOV     DPH,R7
+   \   000037   A3           INC     DPTR
+   \   000038   AE82         MOV     R6,DPL
+   \   00003A   AF83         MOV     R7,DPH
+    314              } 
+   \   00003C   05..         INC     ?V0 + 2
+   \                     ??ISendStr_3:
+   \   00003E   E5..         MOV     A,?V0 + 2
+   \   000040   C3           CLR     C
+   \   000041   95..         SUBB    A,?V0 + 3
+   \   000043   40E4         JC      ??ISendStr_4
+    315           Stop_I2c();                 /*结束总线*/ 
+   \   000045                ; Setup parameters for call to function Stop_I2c
+   \   000045   12....       LCALL   ??Stop_I2c?relay
+    316            return(1);
+   \   000048   7901         MOV     R1,#0x1
+   \                     ??ISendStr_2:
+   \   00004A   7F04         MOV     R7,#0x4
+   \   00004C   02....       LJMP    ?BANKED_LEAVE_XDATA
+    317          }
+    318          
+    319          
+    320          /*******************************************************************
+    321                              向无子地址器件读字节数据函数               
+    322          函数原型: uint  IRcvByte(uchar sla,ucahr *c);  
+    323          
+    324          功    能: 从启动总线到发送地址，读数据，结束总线的全过程,从器件地
+    325                    址sla，返回值在c. 如果返回1表示操作成功，否则操作有误。
+    326          
+    327          注    意：使用前必须已结束总线。
+    328          ********************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    329          uint8 IRcvByte(uint8 sla,uint8 *c)
+   \                     IRcvByte:
+    330          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV     ?V0 + 0,R1
+   \   000007   EA           MOV     A,R2
+   \   000008   FE           MOV     R6,A
+   \   000009   EB           MOV     A,R3
+   \   00000A   FF           MOV     R7,A
+    331             Start_I2c();                /*启动总线*/
+   \   00000B                ; Setup parameters for call to function Start_I2c
+   \   00000B   12....       LCALL   ??Start_I2c?relay
+    332             SendByte(sla+1);           /*发送器件地址*/
+   \   00000E                ; Setup parameters for call to function SendByte
+   \   00000E   7401         MOV     A,#0x1
+   \   000010   25..         ADD     A,?V0 + 0
+   \   000012   12....       LCALL   ??Subroutine34_0 & 0xFFFF
+    333           
+    334             if(ack==0)return(0);
+   \                     ??CrossCallReturnLabel_81:
+   \   000015   7004         JNZ     ??IRcvByte_0
+   \   000017   7900         MOV     R1,#0x0
+   \   000019   8003         SJMP    ??CrossCallReturnLabel_15
+    335             *c=RcvByte();               /*读取数据*/
+   \                     ??IRcvByte_0:
+   \   00001B                ; Setup parameters for call to function RcvByte
+   \   00001B   12....       LCALL   ?Subroutine14 & 0xFFFF
+    336             Ack_I2c(1);               /*发送非就答位*/
+    337             Stop_I2c();                  /*结束总线*/ 
+    338             return(1);
+   \                     ??CrossCallReturnLabel_15:
+   \   00001E   02....       LJMP    ??Subroutine28_0 & 0xFFFF
+    339          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine14:
+   \   000000   12....       LCALL   ?Subroutine24 & 0xFFFF
+   \                     ??CrossCallReturnLabel_28:
+   \   000003                ; Setup parameters for call to function Ack_I2c
+   \   000003                ; Setup parameters for call to function Ack_I2c
+   \   000003   7901         MOV     R1,#0x1
+   \   000005   12....       LCALL   ??Ack_I2c?relay
+   \   000008                ; Setup parameters for call to function Stop_I2c
+   \   000008                ; Setup parameters for call to function Stop_I2c
+   \   000008   12....       LCALL   ??Stop_I2c?relay
+   \   00000B   7901         MOV     R1,#0x1
+   \   00000D   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine24:
+   \   000000   12....       LCALL   ??RcvByte?relay
+   \   000003   E9           MOV     A,R1
+   \   000004   8E82         MOV     DPL,R6
+   \   000006   8F83         MOV     DPH,R7
+   \   000008   F0           MOVX    @DPTR,A
+   \   000009   22           RET
+    340          
+    341          /*******************************************************************
+    342                              向有子地址器件读取多字节数据函数               
+    343          函数原型: uint  ISendStr(uchar sla,uchar suba,ucahr *s,uchar no); 
+    344          
+    345          功    能: 从启动总线到发送地址，子地址,读数据，结束总线的全过程,从器件
+    346                    地址sla，子地址suba，读出的内容放入s指向的存储区，读no个字节。
+    347                    如果返回1表示操作成功，否则操作有误。
+    348          
+    349          注    意：使用前必须已结束总线。
+    350          ********************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    351          uint8 IRcvStr(uint8 sla,uint8 suba,uint8 *s,uint8 no)
+   \                     IRcvStr:
+    352          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV     ?V0 + 4,R1
+   \   000007   8A..         MOV     ?V0 + 5,R2
+   \   000009   EC           MOV     A,R4
+   \   00000A   FE           MOV     R6,A
+   \   00000B   ED           MOV     A,R5
+   \   00000C   FF           MOV     R7,A
+   \   00000D   8B..         MOV     ?V0 + 7,R3
+    353             uint8 i;
+    354          
+    355             Start_I2c();               /*启动总线*/
+   \   00000F                ; Setup parameters for call to function Start_I2c
+   \   00000F   12....       LCALL   ??Start_I2c?relay
+    356             SendByte(sla);            /*发送器件地址*/
+   \   000012                ; Setup parameters for call to function SendByte
+   \   000012   A9..         MOV     R1,?V0 + 4
+   \   000014   12....       LCALL   ??Subroutine35_0 & 0xFFFF
+    357             if(ack==0)return(0);
+   \                     ??CrossCallReturnLabel_86:
+   \   000017   7004         JNZ     ??IRcvStr_0
+   \                     ??IRcvStr_1:
+   \   000019   7900         MOV     R1,#0x0
+   \   00001B   804A         SJMP    ??CrossCallReturnLabel_16
+    358             SendByte(suba);            /*发送器件子地址*/
+   \                     ??IRcvStr_0:
+   \   00001D                ; Setup parameters for call to function SendByte
+   \   00001D   A9..         MOV     R1,?V0 + 5
+   \   00001F   12....       LCALL   ??Subroutine35_0 & 0xFFFF
+    359             if(ack==0)return(0);
+   \                     ??CrossCallReturnLabel_87:
+   \   000022   60F5         JZ      ??IRcvStr_1
+    360             Start_I2c();
+   \   000024                ; Setup parameters for call to function Start_I2c
+   \   000024   12....       LCALL   ??Start_I2c?relay
+    361             SendByte(sla+1);
+   \   000027                ; Setup parameters for call to function SendByte
+   \   000027   7401         MOV     A,#0x1
+   \   000029   25..         ADD     A,?V0 + 4
+   \   00002B   12....       LCALL   ??Subroutine34_0 & 0xFFFF
+    362             if(ack==0)return(0);
+   \                     ??CrossCallReturnLabel_82:
+   \   00002E   60E9         JZ      ??IRcvStr_1
+    363             for(i=0;i<no-1;i++)
+   \   000030   75..00       MOV     ?V0 + 6,#0x0
+   \   000033   8013         SJMP    ??IRcvStr_2
+    364              {   
+    365                *s=RcvByte();               /*发送数据*/
+   \                     ??IRcvStr_3:
+   \   000035                ; Setup parameters for call to function RcvByte
+   \   000035   12....       LCALL   ?Subroutine24 & 0xFFFF
+    366                Ack_I2c(0);                /*发送就答位*/  
+   \                     ??CrossCallReturnLabel_27:
+   \   000038                ; Setup parameters for call to function Ack_I2c
+   \   000038   7900         MOV     R1,#0x0
+   \   00003A   12....       LCALL   ??Ack_I2c?relay
+    367                s++;
+   \   00003D   8E82         MOV     DPL,R6
+   \   00003F   8F83         MOV     DPH,R7
+   \   000041   A3           INC     DPTR
+   \   000042   AE82         MOV     R6,DPL
+   \   000044   AF83         MOV     R7,DPH
+    368              } 
+   \   000046   05..         INC     ?V0 + 6
+   \                     ??IRcvStr_2:
+   \   000048   85....       MOV     ?V0 + 0,?V0 + 6
+   \   00004B   85....       MOV     ?V0 + 2,?V0 + 7
+   \   00004E   E5..         MOV     A,?V0 + 2
+   \   000050   24FF         ADD     A,#-0x1
+   \   000052   F8           MOV     R0,A
+   \   000053   E4           CLR     A
+   \   000054   34FF         ADDC    A,#-0x1
+   \   000056   F9           MOV     R1,A
+   \   000057   C3           CLR     C
+   \   000058   E5..         MOV     A,?V0 + 0
+   \   00005A   98           SUBB    A,R0
+   \   00005B   E4           CLR     A
+   \   00005C   99           SUBB    A,R1
+   \   00005D   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   00005F   65D0         XRL     A,PSW
+   \   000061   33           RLC     A
+   \   000062   40D1         JC      ??IRcvStr_3
+    369             *s=RcvByte();
+   \   000064                ; Setup parameters for call to function RcvByte
+   \   000064   12....       LCALL   ?Subroutine14 & 0xFFFF
+    370             Ack_I2c(1);                 /*发送非应位*/
+    371             Stop_I2c();                    /*结束总线*/ 
+    372             return(1);
+   \                     ??CrossCallReturnLabel_16:
+   \   000067   7F08         MOV     R7,#0x8
+   \   000069   02....       LJMP    ?BANKED_LEAVE_XDATA
+    373          }
+    374          
+    375          //static uint8 IRcvStr_test(uint8 sla,uint8 *s,uint8 no)
+    376          //{
+    377             //uint8 i;
+    378          
+    379          //   Start_I2c();               /*启动总线*/
+    380          //   SendByte(sla);            /*发送器件地址*/
+    381          //   if(ack==0)return(0);
+    382             //SendByte(suba);            /*发送器件子地址*/
+    383            // if(ack==0)return(0);
+    384             //Start_I2c();
+    385            // SendByte(sla+1);
+    386            // if(ack==0)return(0);
+    387          //   for(i=0;i<no-1;i++)
+    388          //    {   
+    389          //      *s=RcvByte();               /*发送数据*/
+    390           //     Ack_I2c(0);                /*发送就答位*/  
+    391           //     s++;
+    392          //    } 
+    393          //   while(no > 0) 
+    394          //   {
+    395           //   *s++ = RcvByte();
+    396           //    if(no > 1)  Ack_I2c(0);                /*发送就答位*/ 
+    397           //    else Ack_I2c(1);                 /*发送非应位*/
+    398           //    no--;
+    399           //  }
+    400          //   *s=RcvByte();
+    401          //   Ack_I2c(1);                 /*发送非应位*/
+    402          //   Stop_I2c();                    /*结束总线*/ 
+    403           //  return(1);
+    404          //}
+    405          
+    406          //float iicreadtpm275(void)
+    407          //{ 
+    408          //   uint8 data[2];
+    409          //   float tmp;
+    410          //    ISendByte(TMP275_I2CADDR,0);
+    411          //    IRcvStr_test(0x93,data,2);
+    412          //    tmp = (float)data[0] + (float)(data[1]>>4) * 0.0625;
+    413          //    return tmp; 
+    414          //}
+    415          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    416          void ledInit(void)
+   \                     ledInit:
+    417          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 1
+   \   000004   74FF         MOV     A,#-0x1
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    418            uint8 output = 0x00;
+   \   000009   12....       LCALL   ??Subroutine31_0 & 0xFFFF
+    419            uint8 *data = 0;
+    420            if(ISendStr(0x40,0x03,&output,1))  //写配置
+   \                     ??CrossCallReturnLabel_65:
+   \   00000C   6015         JZ      ??CrossCallReturnLabel_19
+    421            {
+    422              output = 0xbf;
+   \   00000E   85..82       MOV     DPL,?XSP + 0
+   \   000011   85..83       MOV     DPH,?XSP + 1
+   \   000014   74BF         MOV     A,#-0x41
+   \   000016   12....       LCALL   ??Subroutine33_0 & 0xFFFF
+    423              if(ISendStr(0x40,0x01,&output,1))
+   \                     ??CrossCallReturnLabel_73:
+   \   000019   6008         JZ      ??CrossCallReturnLabel_19
+    424              {
+    425                if(IRcvByte(0x40,data))
+   \   00001B                ; Setup parameters for call to function IRcvByte
+   \   00001B   12....       LCALL   ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_50:
+   \   00001E   6003         JZ      ??CrossCallReturnLabel_19
+    426                {
+    427                  ledstate = *data;
+   \   000020   12....       LCALL   ?Subroutine16 & 0xFFFF
+    428                }
+    429              }
+    430            }
+    431          }
+   \                     ??CrossCallReturnLabel_19:
+   \   000023   02....       LJMP    ?Subroutine0 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine18:
+   \   000000   7A00         MOV     R2,#0x0
+   \   000002   7B00         MOV     R3,#0x0
+   \   000004   7940         MOV     R1,#0x40
+   \   000006                REQUIRE ??Subroutine30_0
+   \   000006                ; // Fall through to label ??Subroutine30_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine30_0:
+   \   000000   12....       LCALL   ??IRcvByte?relay
+   \   000003   E9           MOV     A,R1
+   \   000004   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine31_0:
+   \   000000   12....       LCALL   ?Subroutine20 & 0xFFFF
+   \                     ??CrossCallReturnLabel_67:
+   \   000003   7940         MOV     R1,#0x40
+   \   000005   12....       LCALL   ??ISendStr?relay
+   \   000008   E9           MOV     A,R1
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine20:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006   E4           CLR     A
+   \   000007                REQUIRE ??Subroutine32_0
+   \   000007                ; // Fall through to label ??Subroutine32_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine32_0:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001   7B01         MOV     R3,#0x1
+   \   000003   AC82         MOV     R4,DPL
+   \   000005   AD83         MOV     R5,DPH
+   \   000007   7A03         MOV     R2,#0x3
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine16:
+   \   000000   900000       MOV     DPTR,#0x0
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   90....       MOV     DPTR,#ledstate
+   \   000007   F0           MOVX    @DPTR,A
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine33_0:
+   \   000000   12....       LCALL   ?Subroutine21 & 0xFFFF
+   \                     ??CrossCallReturnLabel_74:
+   \   000003   7940         MOV     R1,#0x40
+   \   000005   12....       LCALL   ??ISendStr?relay
+   \   000008   E9           MOV     A,R1
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine21:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001                ; Setup parameters for call to function ISendStr
+   \   000001   7B01         MOV     R3,#0x1
+   \   000003   AC82         MOV     R4,DPL
+   \   000005   AD83         MOV     R5,DPH
+   \   000007   7A01         MOV     R2,#0x1
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7401         MOV     A,#0x1
+   \   000002   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000005                REQUIRE ??Subroutine37_0
+   \   000005                ; // Fall through to label ??Subroutine37_0
+    432          /******************************************************************************
+    433           * 函数名称：FLASHLED
+    434           *
+    435           * 功能描述：通过IIC总线控制PCA9554的输出，在输出控制前，先判断所控制PCA9554输出
+    436           *           寄存器的值，然后对所控制的位进行取反控制。
+    437           *                    
+    438           *
+    439           * 参    数：led - 对应PCA9554的输出端口
+    440           *           
+    441           *
+    442           * 返 回 值：无
+    443           *           
+    444           *
+    445           * 注    意：PCA9554的地址为：0x40
+    446           *****************************************************************************/ 
+    447          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   7401         MOV     A,#0x1
+   \   000002   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000005                REQUIRE ??Subroutine28_0
+   \   000005                ; // Fall through to label ??Subroutine28_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    448          void FLASHLED(uint8 led)   
+   \                     FLASHLED:
+    449          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   12....       LCALL   ?Subroutine9 & 0xFFFF
+    450            uint8 output = 0x00;
+    451            uint8 *data = 0;
+    452            if(ISendStr(0x40,0x03,&output,1))    //写配置
+   \                     ??CrossCallReturnLabel_61:
+   \   00000D   7003         JNZ     $+5
+   \   00000F   02....       LJMP    ??CrossCallReturnLabel_20 & 0xFFFF
+    453            {
+    454              switch(led)
+   \   000012   EE           MOV     A,R6
+   \   000013   14           DEC     A
+   \   000014   6051         JZ      ??FLASHLED_0
+   \   000016   14           DEC     A
+   \   000017   605E         JZ      ??FLASHLED_1
+   \   000019   14           DEC     A
+   \   00001A   600B         JZ      ??FLASHLED_2
+   \   00001C   14           DEC     A
+   \   00001D   6018         JZ      ??FLASHLED_3
+   \   00001F   14           DEC     A
+   \   000020   6025         JZ      ??FLASHLED_4
+   \   000022   14           DEC     A
+   \   000023   6032         JZ      ??FLASHLED_5
+   \   000025   8065         SJMP    ??FLASHLED_6
+    455              {
+    456               case 3:     
+    457               output = ledstate & 0x01;  //判断所控制位的当前状态 
+    458                if (output)                      //如果当前该位状态为1，则改变输出为0
+   \                     ??FLASHLED_2:
+   \   000027   90....       MOV     DPTR,#ledstate
+   \   00002A   E0           MOVX    A,@DPTR
+   \   00002B   A2E0         MOV     C,0xE0 /* A   */.0
+   \   00002D   5004         JNC     ??FLASHLED_7
+    459               {
+    460                 output = ledstate & 0xfe;
+   \   00002F   54FE         ANL     A,#0xfe
+   \   000031   8052         SJMP    ??FLASHLED_8
+    461               }
+    462                else                             //如果当前状态为0，则改变输出为1
+    463               {
+    464                 output = ledstate | 0x01;
+   \                     ??FLASHLED_7:
+   \   000033   4401         ORL     A,#0x1
+   \   000035   804E         SJMP    ??FLASHLED_8
+    465               }
+    466               break;
+    467               case 4:     
+    468               output = ledstate & 0x02;
+    469                if (output)
+   \                     ??FLASHLED_3:
+   \   000037   90....       MOV     DPTR,#ledstate
+   \   00003A   E0           MOVX    A,@DPTR
+   \   00003B   A2E1         MOV     C,0xE0 /* A   */.1
+   \   00003D   5004         JNC     ??FLASHLED_9
+    470               {
+    471                 output = ledstate & 0xfd;
+   \   00003F   54FD         ANL     A,#0xfd
+   \   000041   8042         SJMP    ??FLASHLED_8
+    472               }
+    473                else
+    474               {
+    475                 output = ledstate | 0x02;
+   \                     ??FLASHLED_9:
+   \   000043   4402         ORL     A,#0x2
+   \   000045   803E         SJMP    ??FLASHLED_8
+    476               }
+    477               break;
+    478               case 5:     
+    479               output = ledstate & 0x08;
+    480                if (output)
+   \                     ??FLASHLED_4:
+   \   000047   90....       MOV     DPTR,#ledstate
+   \   00004A   E0           MOVX    A,@DPTR
+   \   00004B   A2E3         MOV     C,0xE0 /* A   */.3
+   \   00004D   5004         JNC     ??FLASHLED_10
+    481               {
+    482                 output = ledstate & 0xf7;
+   \   00004F   54F7         ANL     A,#0xf7
+   \   000051   8032         SJMP    ??FLASHLED_8
+    483               }
+    484                else
+    485               {
+    486                 output = ledstate | 0x08;
+   \                     ??FLASHLED_10:
+   \   000053   4408         ORL     A,#0x8
+   \   000055   802E         SJMP    ??FLASHLED_8
+    487               }
+    488               break;
+    489               case 6:     
+    490               output = ledstate & 0x04;
+    491                if (output)
+   \                     ??FLASHLED_5:
+   \   000057   90....       MOV     DPTR,#ledstate
+   \   00005A   E0           MOVX    A,@DPTR
+   \   00005B   A2E2         MOV     C,0xE0 /* A   */.2
+   \   00005D   5004         JNC     ??FLASHLED_11
+    492               {
+    493                 output = ledstate & 0xfb;
+   \   00005F   54FB         ANL     A,#0xfb
+   \   000061   8022         SJMP    ??FLASHLED_8
+    494               }
+    495                else
+    496               {
+    497                 output = ledstate | 0x04;
+   \                     ??FLASHLED_11:
+   \   000063   4404         ORL     A,#0x4
+   \   000065   801E         SJMP    ??FLASHLED_8
+    498               }
+    499               break;
+    500               case 1:     
+    501               output = ledstate & 0x20;
+    502                if (output)
+   \                     ??FLASHLED_0:
+   \   000067   90....       MOV     DPTR,#ledstate
+   \   00006A   E0           MOVX    A,@DPTR
+   \   00006B   A2E5         MOV     C,0xE0 /* A   */.5
+   \   00006D   5004         JNC     ??FLASHLED_12
+    503               {
+    504                 output = ledstate & 0xdf;
+   \   00006F   54DF         ANL     A,#0xdf
+   \   000071   8012         SJMP    ??FLASHLED_8
+    505               }
+    506                else
+    507               {
+    508                 output = ledstate | 0x20;
+   \                     ??FLASHLED_12:
+   \   000073   4420         ORL     A,#0x20
+   \   000075   800E         SJMP    ??FLASHLED_8
+    509               }
+    510               break;
+    511               case 2:     
+    512               output = ledstate & 0x10;
+    513                if (output)
+   \                     ??FLASHLED_1:
+   \   000077   90....       MOV     DPTR,#ledstate
+   \   00007A   E0           MOVX    A,@DPTR
+   \   00007B   A2E4         MOV     C,0xE0 /* A   */.4
+   \   00007D   5004         JNC     ??FLASHLED_13
+    514               {
+    515                 output = ledstate & 0xef;
+   \   00007F   54EF         ANL     A,#0xef
+   \   000081   8002         SJMP    ??FLASHLED_8
+    516               }
+    517                else
+    518               {
+    519                 output = ledstate | 0x10;
+   \                     ??FLASHLED_13:
+   \   000083   4410         ORL     A,#0x10
+   \                     ??FLASHLED_8:
+   \   000085   85..82       MOV     DPL,?XSP + 0
+   \   000088   85..83       MOV     DPH,?XSP + 1
+   \   00008B   F0           MOVX    @DPTR,A
+    520               }
+    521               break;
+    522               default: break;
+    523              }
+    524               if(ISendStr(0x40,0x01,&output,1))    //写输出寄存器
+   \                     ??FLASHLED_6:
+   \   00008C                ; Setup parameters for call to function ISendStr
+   \   00008C   12....       LCALL   ?Subroutine17 & 0xFFFF
+   \                     ??CrossCallReturnLabel_91:
+   \   00008F   6008         JZ      ??CrossCallReturnLabel_20
+    525              {
+    526                if(IRcvByte(0x40,data))             //读输出寄存器
+   \   000091                ; Setup parameters for call to function IRcvByte
+   \   000091   12....       LCALL   ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_51:
+   \   000094   6003         JZ      ??CrossCallReturnLabel_20
+    527                {
+    528                  ledstate = *data;          //保存输出寄存器当前状态。
+   \   000096   12....       LCALL   ?Subroutine16 & 0xFFFF
+    529                }
+    530              }
+    531            }
+    532          }
+   \                     ??CrossCallReturnLabel_20:
+   \   000099   02....       LJMP    ?Subroutine2 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   E9           MOV     A,R1
+   \   000001   FE           MOV     R6,A
+   \   000002                REQUIRE ??Subroutine31_0
+   \   000002                ; // Fall through to label ??Subroutine31_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine17:
+   \   000000   7B01         MOV     R3,#0x1
+   \   000002   85..82       MOV     DPL,?XSP + 0
+   \   000005   85..83       MOV     DPH,?XSP + 1
+   \   000008   AC82         MOV     R4,DPL
+   \   00000A   AD83         MOV     R5,DPH
+   \   00000C   7A01         MOV     R2,#0x1
+   \   00000E   7940         MOV     R1,#0x40
+   \   000010                REQUIRE ??Subroutine36_0
+   \   000010                ; // Fall through to label ??Subroutine36_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine36_0:
+   \   000000   12....       LCALL   ??ISendStr?relay
+   \   000003   E9           MOV     A,R1
+   \   000004   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    533          void FLASHLED4(uint8 FLASHnum)   //LED4闪烁
+   \                     FLASHLED4:
+    534          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   12....       LCALL   ?Subroutine9 & 0xFFFF
+    535            uint8 output = 0x00;
+    536            uint8 *data = 0;
+    537            if(ISendStr(0x40,0x03,&output,1))  //写配置
+   \                     ??CrossCallReturnLabel_62:
+   \   00000D   601E         JZ      ??CrossCallReturnLabel_21
+    538            {
+    539              if(FLASHnum)
+   \   00000F   EE           MOV     A,R6
+   \   000010   601B         JZ      ??CrossCallReturnLabel_21
+    540              {
+    541               output = ledstate & 0x20;
+    542               if (output)
+   \   000012   90....       MOV     DPTR,#ledstate
+   \   000015   E0           MOVX    A,@DPTR
+   \   000016   A2E5         MOV     C,0xE0 /* A   */.5
+   \   000018   5004         JNC     ??FLASHLED4_0
+    543              {
+    544                output = ledstate & 0xdf;
+   \   00001A   54DF         ANL     A,#0xdf
+   \   00001C   8002         SJMP    ??FLASHLED4_1
+    545              }
+    546              else
+    547              {
+    548                output = ledstate | 0x20;
+   \                     ??FLASHLED4_0:
+   \   00001E   4420         ORL     A,#0x20
+    549              }
+   \                     ??FLASHLED4_1:
+   \   000020   12....       LCALL   ?Subroutine11 & 0xFFFF
+    550               if(ISendStr(0x40,0x01,&output,1))
+   \                     ??CrossCallReturnLabel_70:
+   \   000023   6008         JZ      ??CrossCallReturnLabel_21
+    551              {
+    552                if(IRcvByte(0x40,data))
+   \   000025                ; Setup parameters for call to function IRcvByte
+   \   000025   12....       LCALL   ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_52:
+   \   000028   6003         JZ      ??CrossCallReturnLabel_21
+    553                {
+    554                  ledstate = *data;
+   \   00002A   12....       LCALL   ?Subroutine16 & 0xFFFF
+    555                }
+    556              }
+    557              //FLASHnum --;
+    558             // Wait(50);
+    559              }
+    560            }
+    561          }
+   \                     ??CrossCallReturnLabel_21:
+   \   00002D   02....       LJMP    ?Subroutine2 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   85..82       MOV     DPL,?XSP + 0
+   \   000003   85..83       MOV     DPH,?XSP + 1
+   \   000006                REQUIRE ??Subroutine33_0
+   \   000006                ; // Fall through to label ??Subroutine33_0
+    562          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    563          void FLASHLED5(uint8 FLASHnum)   //LED5闪烁
+   \                     FLASHLED5:
+    564          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   12....       LCALL   ?Subroutine9 & 0xFFFF
+    565            uint8 output = 0x00;
+    566            uint8 *data = 0;
+    567            if(ISendStr(0x40,0x03,&output,1))  //写配置
+   \                     ??CrossCallReturnLabel_63:
+   \   00000D   601E         JZ      ??CrossCallReturnLabel_22
+    568            {
+    569              if(FLASHnum)
+   \   00000F   EE           MOV     A,R6
+   \   000010   601B         JZ      ??CrossCallReturnLabel_22
+    570              {
+    571              output = ledstate & 0x10;
+    572              if (output)
+   \   000012   90....       MOV     DPTR,#ledstate
+   \   000015   E0           MOVX    A,@DPTR
+   \   000016   A2E4         MOV     C,0xE0 /* A   */.4
+   \   000018   5004         JNC     ??FLASHLED5_0
+    573              {
+    574                output = ledstate & 0xef;
+   \   00001A   54EF         ANL     A,#0xef
+   \   00001C   8002         SJMP    ??FLASHLED5_1
+    575              }
+    576              else
+    577              {
+    578                output = ledstate | 0x10;
+   \                     ??FLASHLED5_0:
+   \   00001E   4410         ORL     A,#0x10
+    579              }
+   \                     ??FLASHLED5_1:
+   \   000020   12....       LCALL   ?Subroutine11 & 0xFFFF
+    580               if(ISendStr(0x40,0x01,&output,1))
+   \                     ??CrossCallReturnLabel_71:
+   \   000023   6008         JZ      ??CrossCallReturnLabel_22
+    581              {
+    582                if(IRcvByte(0x40,data))
+   \   000025                ; Setup parameters for call to function IRcvByte
+   \   000025   12....       LCALL   ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_53:
+   \   000028   6003         JZ      ??CrossCallReturnLabel_22
+    583                {
+    584                  ledstate = *data;
+   \   00002A   12....       LCALL   ?Subroutine16 & 0xFFFF
+    585                }
+    586              }
+    587             // FLASHnum --;
+    588             // Wait(50);
+    589              }
+    590            }
+    591          }
+   \                     ??CrossCallReturnLabel_22:
+   \   00002D   02....       LJMP    ?Subroutine2 & 0xFFFF
+    592          
+    593          /******************************************************************************
+    594           * 函数名称：LED
+    595           *
+    596           * 功能描述：通过IIC总线控制PCA9554的输出，进而控制相应的LED。
+    597           *                    
+    598           *
+    599           * 参    数：LED - 所控制的LED
+    600           *           operation - 开或关操作
+    601           *
+    602           * 返 回 值：无
+    603           *           
+    604           *
+    605           * 注    意：PCA9554的地址为：0x40
+    606           *****************************************************************************/ 
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    607          void LED(uint8 led,uint8 operation)
+   \                     LED:
+    608          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   E9           MOV     A,R1
+   \   00000B   FE           MOV     R6,A
+   \   00000C   EA           MOV     A,R2
+   \   00000D   FF           MOV     R7,A
+    609            uint8 output = 0x00;
+   \   00000E   12....       LCALL   ??Subroutine31_0 & 0xFFFF
+    610            uint8 *data = 0;
+    611            if(ISendStr(0x40,0x03,&output,1))  //配置PCA9554寄存器
+   \                     ??CrossCallReturnLabel_66:
+   \   000011   7003         JNZ     $+5
+   \   000013   02....       LJMP    ??CrossCallReturnLabel_23 & 0xFFFF
+    612            {
+    613              switch(led)
+   \   000016   EE           MOV     A,R6
+   \   000017   14           DEC     A
+   \   000018   6011         JZ      ??LED_0
+   \   00001A   14           DEC     A
+   \   00001B   601E         JZ      ??LED_1
+   \   00001D   14           DEC     A
+   \   00001E   602B         JZ      ??LED_2
+   \   000020   14           DEC     A
+   \   000021   6038         JZ      ??LED_3
+   \   000023   14           DEC     A
+   \   000024   6045         JZ      ??LED_4
+   \   000026   14           DEC     A
+   \   000027   6052         JZ      ??LED_5
+   \   000029   8065         SJMP    ??LED_6
+    614              {
+    615                case 1:                        //LED0控制
+    616                   if (operation)
+   \                     ??LED_0:
+   \   00002B   EF           MOV     A,R7
+   \   00002C   90....       MOV     DPTR,#ledstate
+   \   00002F   6005         JZ      ??LED_7
+    617                  {
+    618                    output = ledstate & 0xdf;
+   \   000031   E0           MOVX    A,@DPTR
+   \   000032   54DF         ANL     A,#0xdf
+   \   000034   8053         SJMP    ??LED_8
+    619                  }
+    620                  else
+    621                  {
+    622                    output = ledstate | 0x20;
+   \                     ??LED_7:
+   \   000036   E0           MOVX    A,@DPTR
+   \   000037   4420         ORL     A,#0x20
+   \   000039   804E         SJMP    ??LED_8
+    623                  }
+    624                  
+    625                break;
+    626                 case 2:                      //LED1控制
+    627                  if (operation)
+   \                     ??LED_1:
+   \   00003B   EF           MOV     A,R7
+   \   00003C   90....       MOV     DPTR,#ledstate
+   \   00003F   6005         JZ      ??LED_9
+    628                  {
+    629                    output = ledstate & 0xef;
+   \   000041   E0           MOVX    A,@DPTR
+   \   000042   54EF         ANL     A,#0xef
+   \   000044   8043         SJMP    ??LED_8
+    630                  }
+    631                  else
+    632                  {
+    633                    output = ledstate | 0x10;
+   \                     ??LED_9:
+   \   000046   E0           MOVX    A,@DPTR
+   \   000047   4410         ORL     A,#0x10
+   \   000049   803E         SJMP    ??LED_8
+    634                  }
+    635                 
+    636                break;
+    637                 case 3:                     //LED2控制
+    638                  if (operation)
+   \                     ??LED_2:
+   \   00004B   EF           MOV     A,R7
+   \   00004C   90....       MOV     DPTR,#ledstate
+   \   00004F   6005         JZ      ??LED_10
+    639                  {
+    640                    output = ledstate & 0xfe;
+   \   000051   E0           MOVX    A,@DPTR
+   \   000052   54FE         ANL     A,#0xfe
+   \   000054   8033         SJMP    ??LED_8
+    641                  }
+    642                  else
+    643                  {
+    644                    output = ledstate | 0x01;
+   \                     ??LED_10:
+   \   000056   E0           MOVX    A,@DPTR
+   \   000057   4401         ORL     A,#0x1
+   \   000059   802E         SJMP    ??LED_8
+    645                  }
+    646                  
+    647                break;
+    648                 case 4:                     //LED3控制
+    649                  if (operation)
+   \                     ??LED_3:
+   \   00005B   EF           MOV     A,R7
+   \   00005C   90....       MOV     DPTR,#ledstate
+   \   00005F   6005         JZ      ??LED_11
+    650                  {
+    651                    output = ledstate & 0xfd;
+   \   000061   E0           MOVX    A,@DPTR
+   \   000062   54FD         ANL     A,#0xfd
+   \   000064   8023         SJMP    ??LED_8
+    652                  }
+    653                  else
+    654                  {
+    655                    output = ledstate | 0x02;
+   \                     ??LED_11:
+   \   000066   E0           MOVX    A,@DPTR
+   \   000067   4402         ORL     A,#0x2
+   \   000069   801E         SJMP    ??LED_8
+    656                  }
+    657                  
+    658                break;
+    659                 case 5:                    //LED4控制
+    660                  if (operation)
+   \                     ??LED_4:
+   \   00006B   EF           MOV     A,R7
+   \   00006C   90....       MOV     DPTR,#ledstate
+   \   00006F   6005         JZ      ??LED_12
+    661                  {
+    662                    output = ledstate & 0xfb;
+   \   000071   E0           MOVX    A,@DPTR
+   \   000072   54FB         ANL     A,#0xfb
+   \   000074   8013         SJMP    ??LED_8
+    663                  }
+    664                  else
+    665                  {
+    666                    output = ledstate | 0x04;
+   \                     ??LED_12:
+   \   000076   E0           MOVX    A,@DPTR
+   \   000077   4404         ORL     A,#0x4
+   \   000079   800E         SJMP    ??LED_8
+    667                  }
+    668                  
+    669                break;
+    670                 case 6:                   //LED5控制
+    671                  if (operation)
+   \                     ??LED_5:
+   \   00007B   EF           MOV     A,R7
+   \   00007C   90....       MOV     DPTR,#ledstate
+   \   00007F   6005         JZ      ??LED_13
+    672                  {
+    673                    output = ledstate & 0xf7;
+   \   000081   E0           MOVX    A,@DPTR
+   \   000082   54F7         ANL     A,#0xf7
+   \   000084   8003         SJMP    ??LED_8
+    674                  }
+    675                  else
+    676                  {
+    677                    output = ledstate | 0x08;
+   \                     ??LED_13:
+   \   000086   E0           MOVX    A,@DPTR
+   \   000087   4408         ORL     A,#0x8
+   \                     ??LED_8:
+   \   000089   85..82       MOV     DPL,?XSP + 0
+   \   00008C   85..83       MOV     DPH,?XSP + 1
+   \   00008F   F0           MOVX    @DPTR,A
+    678                  }
+    679                  
+    680                break;
+    681          
+    682               default:break;
+    683              }
+    684              if(ISendStr(0x40,0x01,&output,1)) //写PCA9554输出寄存器
+   \                     ??LED_6:
+   \   000090                ; Setup parameters for call to function ISendStr
+   \   000090   12....       LCALL   ?Subroutine17 & 0xFFFF
+   \                     ??CrossCallReturnLabel_92:
+   \   000093   6008         JZ      ??CrossCallReturnLabel_23
+    685              {
+    686                if(IRcvByte(0x40,data))         //读PCA9554输出寄存器
+   \   000095                ; Setup parameters for call to function IRcvByte
+   \   000095   12....       LCALL   ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_54:
+   \   000098   6003         JZ      ??CrossCallReturnLabel_23
+    687                {
+    688                  ledstate = *data;
+   \   00009A   12....       LCALL   ?Subroutine16 & 0xFFFF
+    689                }
+    690              }
+    691            }
+    692          }
+   \                     ??CrossCallReturnLabel_23:
+   \   00009D   02....       LJMP    ?Subroutine2 & 0xFFFF
+    693          
+    694          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    695          void Buzzer(uint8 operation)
+   \                     Buzzer:
+    696          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   12....       LCALL   ?Subroutine9 & 0xFFFF
+    697            uint8 output = 0x00;
+    698            uint8 *data = 0;
+    699            if(ISendStr(0x40,0x03,&output,1))  //写配置
+   \                     ??CrossCallReturnLabel_64:
+   \   00000D   601B         JZ      ??CrossCallReturnLabel_24
+    700            {
+    701                  if (operation)
+   \   00000F   EE           MOV     A,R6
+   \   000010   90....       MOV     DPTR,#ledstate
+   \   000013   6005         JZ      ??Buzzer_0
+    702                  {
+    703                    output = ledstate | 0x40;
+   \   000015   E0           MOVX    A,@DPTR
+   \   000016   4440         ORL     A,#0x40
+   \   000018   8003         SJMP    ??Buzzer_1
+    704                  }
+    705                  else
+    706                  {
+    707                    output = ledstate & 0xbf;
+   \                     ??Buzzer_0:
+   \   00001A   E0           MOVX    A,@DPTR
+   \   00001B   54BF         ANL     A,#0xbf
+    708                  }
+   \                     ??Buzzer_1:
+   \   00001D   12....       LCALL   ?Subroutine11 & 0xFFFF
+    709                if(ISendStr(0x40,0x01,&output,1))
+   \                     ??CrossCallReturnLabel_72:
+   \   000020   6008         JZ      ??CrossCallReturnLabel_24
+    710               {
+    711                if(IRcvByte(0x40,data))
+   \   000022                ; Setup parameters for call to function IRcvByte
+   \   000022   12....       LCALL   ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_55:
+   \   000025   6003         JZ      ??CrossCallReturnLabel_24
+    712                {
+    713                  ledstate = *data;
+   \   000027   12....       LCALL   ?Subroutine16 & 0xFFFF
+    714                }
+    715              }
+    716            }
+    717          }
+   \                     ??CrossCallReturnLabel_24:
+   \   00002A   02....       LJMP    ?Subroutine2 & 0xFFFF
+    718          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    719          uint8 Relay(uint8 cmd)
+   \                     Relay:
+    720          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   E9           MOV     A,R1
+   \   00000B   FE           MOV     R6,A
+    721            uint8 output = 0x00;
+   \   00000C   85..82       MOV     DPL,?XSP + 0
+   \   00000F   85..83       MOV     DPH,?XSP + 1
+   \   000012   E4           CLR     A
+   \   000013   12....       LCALL   ?Subroutine15 & 0xFFFF
+    722            uint8 *data = 0;
+    723            if(ISendStr(0x44,0x03,&output,1))  //写配置
+   \                     ??CrossCallReturnLabel_17:
+   \   000016   7944         MOV     R1,#0x44
+   \   000018   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_93:
+   \   00001B   6025         JZ      ??Relay_0
+    724            {
+    725              output = cmd & 0x0f;
+   \   00001D   740F         MOV     A,#0xf
+   \   00001F   5E           ANL     A,R6
+   \   000020   85..82       MOV     DPL,?XSP + 0
+   \   000023   85..83       MOV     DPH,?XSP + 1
+   \   000026   12....       LCALL   ?Subroutine21 & 0xFFFF
+    726              if(ISendStr(0x44,0x01,&output,1))
+   \                     ??CrossCallReturnLabel_75:
+   \   000029   7944         MOV     R1,#0x44
+   \   00002B   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_94:
+   \   00002E   6012         JZ      ??Relay_0
+    727              {
+    728                if(IRcvByte(0x44,data))
+   \   000030                ; Setup parameters for call to function IRcvByte
+   \   000030   7A00         MOV     R2,#0x0
+   \   000032   7B00         MOV     R3,#0x0
+   \   000034   7944         MOV     R1,#0x44
+   \   000036   12....       LCALL   ??Subroutine30_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_56:
+   \   000039   6007         JZ      ??Relay_0
+    729                {
+    730                  return *data;
+   \   00003B   900000       MOV     DPTR,#0x0
+   \   00003E   E0           MOVX    A,@DPTR
+   \   00003F   F9           MOV     R1,A
+   \   000040   8002         SJMP    ??Relay_1
+    731                }
+    732              }
+    733            }
+    734            return 0;
+   \                     ??Relay_0:
+   \   000042   7900         MOV     R1,#0x0
+   \                     ??Relay_1:
+   \   000044   02....       LJMP    ?Subroutine2 & 0xFFFF
+    735          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine15:
+   \   000000   12....       LCALL   ??Subroutine32_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_69:
+   \   000003   22           RET
+    736          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    737          uint8 SRelay(uint8 cmd)
+   \                     SRelay:
+    738          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   E9           MOV     A,R1
+   \   00000B   FE           MOV     R6,A
+    739            uint8 output = 0x00;
+   \   00000C   12....       LCALL   ?Subroutine12 & 0xFFFF
+    740            uint8 *data = 0;
+    741            if(ISendStr(0x48,0x03,&output,1))  //写配置
+   \                     ??CrossCallReturnLabel_10:
+   \   00000F   6020         JZ      ??SRelay_0
+    742            {
+    743              output = cmd & 0x0f;
+   \   000011   740F         MOV     A,#0xf
+   \   000013   5E           ANL     A,R6
+   \   000014   85..82       MOV     DPL,?XSP + 0
+   \   000017   85..83       MOV     DPH,?XSP + 1
+   \   00001A   12....       LCALL   ?Subroutine13 & 0xFFFF
+    744              if(ISendStr(0x48,0x01,&output,1))
+   \                     ??CrossCallReturnLabel_13:
+   \   00001D   6012         JZ      ??SRelay_0
+    745              {
+    746                if(IRcvByte(0x48,data))
+   \   00001F                ; Setup parameters for call to function IRcvByte
+   \   00001F   7A00         MOV     R2,#0x0
+   \   000021   7B00         MOV     R3,#0x0
+   \   000023   7948         MOV     R1,#0x48
+   \   000025   12....       LCALL   ??Subroutine30_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_57:
+   \   000028   6007         JZ      ??SRelay_0
+    747                {
+    748                  return *data;
+   \   00002A   900000       MOV     DPTR,#0x0
+   \   00002D   E0           MOVX    A,@DPTR
+   \   00002E   F9           MOV     R1,A
+   \   00002F   8002         SJMP    ??SRelay_1
+    749                }
+    750              }
+    751            }
+    752            return 0;
+   \                     ??SRelay_0:
+   \   000031   7900         MOV     R1,#0x0
+   \                     ??SRelay_1:
+   \   000033   02....       LJMP    ?Subroutine2 & 0xFFFF
+    753          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   12....       LCALL   ?Subroutine20 & 0xFFFF
+   \                     ??CrossCallReturnLabel_68:
+   \   000003   7948         MOV     R1,#0x48
+   \   000005   12....       LCALL   ??ISendStr?relay
+   \   000008   E9           MOV     A,R1
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine13:
+   \   000000   12....       LCALL   ?Subroutine21 & 0xFFFF
+   \                     ??CrossCallReturnLabel_76:
+   \   000003   7948         MOV     R1,#0x48
+   \   000005   12....       LCALL   ??ISendStr?relay
+   \   000008   E9           MOV     A,R1
+   \   000009   22           RET
+    754          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    755          uint8 Key()
+   \                     Key:
+    756          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 1
+   \   000004   74FF         MOV     A,#-0x1
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    757            uint8 input = 0xff;
+   \   000009   85..82       MOV     DPL,?XSP + 0
+   \   00000C   85..83       MOV     DPH,?XSP + 1
+   \   00000F   74FF         MOV     A,#-0x1
+   \   000011   12....       LCALL   ?Subroutine15 & 0xFFFF
+    758            uint8 *data = 0;
+    759            if(ISendStr(0x42,0x03,&input,1))  //写配置
+   \                     ??CrossCallReturnLabel_18:
+   \   000014   7942         MOV     R1,#0x42
+   \   000016   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_95:
+   \   000019   601C         JZ      ??Key_0
+    760            {   
+    761              if(ISendByte(0x42,0x00))  //发送命令
+   \   00001B                ; Setup parameters for call to function ISendByte
+   \   00001B   7A00         MOV     R2,#0x0
+   \   00001D   7942         MOV     R1,#0x42
+   \   00001F   12....       LCALL   ??ISendByte?relay
+   \   000022   E9           MOV     A,R1
+   \   000023   6012         JZ      ??Key_0
+    762              {
+    763               if(IRcvByte(0x42,data))
+   \   000025                ; Setup parameters for call to function IRcvByte
+   \   000025   7A00         MOV     R2,#0x0
+   \   000027   7B00         MOV     R3,#0x0
+   \   000029   7942         MOV     R1,#0x42
+   \   00002B   12....       LCALL   ??Subroutine30_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_58:
+   \   00002E   6007         JZ      ??Key_0
+    764               {
+    765                 return *data;
+   \   000030   900000       MOV     DPTR,#0x0
+   \   000033   E0           MOVX    A,@DPTR
+   \   000034   F9           MOV     R1,A
+   \   000035   8002         SJMP    ??Key_1
+    766                }
+    767              }
+    768            }
+    769            return 0;
+   \                     ??Key_0:
+   \   000037   7900         MOV     R1,#0x0
+   \                     ??Key_1:
+   \   000039   02....       LJMP    ?Subroutine0 & 0xFFFF
+    770          }
+    771          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    772          uint8 write24L01(uint8 *data,uint8 addr,uint8 Len)
+   \                     write24L01:
+    773          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+   \   000009   89..         MOV     ?V0 + 1,R1
+   \   00000B   8C..         MOV     ?V0 + 0,R4
+    774            if(ISendStr(0xa0,addr,data,Len))
+   \   00000D                ; Setup parameters for call to function ISendStr
+   \   00000D   AB..         MOV     R3,?V0 + 0
+   \   00000F   EE           MOV     A,R6
+   \   000010   FC           MOV     R4,A
+   \   000011   EF           MOV     A,R7
+   \   000012   FD           MOV     R5,A
+   \   000013   AA..         MOV     R2,?V0 + 1
+   \   000015   79A0         MOV     R1,#-0x60
+   \   000017   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_96:
+   \   00001A   6004         JZ      ??write24L01_0
+    775            {
+    776              return 1;
+   \   00001C   7901         MOV     R1,#0x1
+   \   00001E   8002         SJMP    ??write24L01_1
+    777            }
+    778            else
+    779            {
+    780               return 0;
+   \                     ??write24L01_0:
+   \   000020   7900         MOV     R1,#0x0
+    781            } 
+   \                     ??write24L01_1:
+   \   000022   02....       LJMP    ?Subroutine1 & 0xFFFF
+    782          }
+    783          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    784          uint8 read24L01byte(uint8 addr)
+   \                     read24L01byte:
+    785          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+    786            uint8 data = 0;
+    787            if(ISendByte(0xa0,addr))
+   \   000006                ; Setup parameters for call to function ISendByte
+   \   000006   FA           MOV     R2,A
+   \   000007   79A0         MOV     R1,#-0x60
+   \   000009   12....       LCALL   ??ISendByte?relay
+   \   00000C   E9           MOV     A,R1
+   \   00000D   600A         JZ      ??read24L01byte_0
+    788            {
+    789              Start_I2c();                /*启动总线*/
+   \   00000F                ; Setup parameters for call to function Start_I2c
+   \   00000F   12....       LCALL   ??Start_I2c?relay
+    790             SendByte(0xa1);           /*发送器件地址*/
+   \   000012                ; Setup parameters for call to function SendByte
+   \   000012   79A1         MOV     R1,#-0x5f
+   \   000014   12....       LCALL   ??Subroutine35_0 & 0xFFFF
+    791             if(ack==0)
+   \                     ??CrossCallReturnLabel_88:
+   \   000017   7004         JNZ     ??read24L01byte_1
+    792             {
+    793               return(0);
+   \                     ??read24L01byte_0:
+   \   000019   7900         MOV     R1,#0x0
+   \   00001B   800F         SJMP    ??read24L01byte_2
+    794             }
+    795             else
+    796             {
+    797             data = RcvByte();               /*读取数据*/
+   \                     ??read24L01byte_1:
+   \   00001D                ; Setup parameters for call to function RcvByte
+   \   00001D   12....       LCALL   ??RcvByte?relay
+   \   000020   E9           MOV     A,R1
+   \   000021   FE           MOV     R6,A
+    798             Ack_I2c(1);               /*发送非就答位*/
+   \   000022                ; Setup parameters for call to function Ack_I2c
+   \   000022   7901         MOV     R1,#0x1
+   \   000024   12....       LCALL   ??Ack_I2c?relay
+    799             Stop_I2c();                  /*结束总线*/ 
+   \   000027                ; Setup parameters for call to function Stop_I2c
+   \   000027   12....       LCALL   ??Stop_I2c?relay
+    800             return data;
+   \   00002A   EE           MOV     A,R6
+   \   00002B   F9           MOV     R1,A
+    801             }
+    802            }
+   \                     ??read24L01byte_2:
+   \   00002C   02....       LJMP    ??Subroutine28_0 & 0xFFFF
+    803            return 0;
+    804          }
+    805          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    806          uint8 VoltageOutput(uint16 Voltage,uint8 Port)
+   \                     VoltageOutput:
+    807          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+   \   000009   89..         MOV     ?V0 + 0,R1
+    808             IO_DIR_PORT_PIN(1, 2, IO_OUT);    //设置P1.0为输出
+   \   00000B   43FE04       ORL     0xfe,#0x4
+    809             P1_2 = 1;
+   \   00000E   D292         SETB    0x90.2
+    810             Start_I2c();               /*启动总线*/
+   \   000010                ; Setup parameters for call to function Start_I2c
+   \   000010   12....       LCALL   ??Start_I2c?relay
+    811             SendByte(0x98);            /*发送器件地址*/
+   \   000013                ; Setup parameters for call to function SendByte
+   \   000013   7998         MOV     R1,#-0x68
+   \   000015   12....       LCALL   ??Subroutine35_0 & 0xFFFF
+    812             if(ack==0)return(0);
+   \                     ??CrossCallReturnLabel_89:
+   \   000018   7004         JNZ     ??VoltageOutput_0
+   \                     ??VoltageOutput_1:
+   \   00001A   7900         MOV     R1,#0x0
+   \   00001C   8019         SJMP    ??VoltageOutput_2
+    813             SendByte(Port);               /*发送控制字节*/
+   \                     ??VoltageOutput_0:
+   \   00001E                ; Setup parameters for call to function SendByte
+   \   00001E   A9..         MOV     R1,?V0 + 0
+   \   000020   12....       LCALL   ??Subroutine35_0 & 0xFFFF
+    814             if(ack==0)return(0);
+   \                     ??CrossCallReturnLabel_90:
+   \   000023   60F5         JZ      ??VoltageOutput_1
+    815             SendByte(HI_UINT16(Voltage));               /*发送数据H*/
+   \   000025                ; Setup parameters for call to function SendByte
+   \   000025   12....       LCALL   ?Subroutine10 & 0xFFFF
+    816             if(ack==0)return(0);
+   \                     ??CrossCallReturnLabel_78:
+   \   000028   60F0         JZ      ??VoltageOutput_1
+    817             SendByte(LO_UINT16(Voltage));               /*发送数据L*/
+   \   00002A                ; Setup parameters for call to function SendByte
+   \   00002A   EE           MOV     A,R6
+   \   00002B   12....       LCALL   ??Subroutine34_0 & 0xFFFF
+    818             if(ack==0)return(0);
+   \                     ??CrossCallReturnLabel_83:
+   \   00002E   60EA         JZ      ??VoltageOutput_1
+    819             Stop_I2c();                 /*结束总线*/ 
+   \   000030                ; Setup parameters for call to function Stop_I2c
+   \   000030   12....       LCALL   ??Stop_I2c?relay
+    820             P1_2 = 0;
+   \   000033   C292         CLR     0x90.2
+    821             return(1);
+   \   000035   7901         MOV     R1,#0x1
+   \                     ??VoltageOutput_2:
+   \   000037   02....       LJMP    ??Subroutine28_0 & 0xFFFF
+   \   00003A                REQUIRE P1DIR
+   \   00003A                REQUIRE _A_P1
+    822          }
+    823          
+    824          
+    825          /******************************************************************************
+    826           * 函数名称：Relays
+    827           *
+    828           * 功能描述：通过IIC总线控制PCA9554的输出，进而控制相应的LED。
+    829           *                    
+    830           *
+    831           * 参    数：relay     - 所控制的Relay
+    832           *           operation - 开或关操作
+    833           *
+    834           * 返 回 值：无
+    835           *           
+    836           *
+    837           * 注    意：PCA9554的地址为：0x48
+    838           *****************************************************************************/ 
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    839          void Relays(uint8 relay,uint8 operation)
+   \                     Relays:
+    840          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   E9           MOV     A,R1
+   \   00000B   FE           MOV     R6,A
+   \   00000C   EA           MOV     A,R2
+   \   00000D   FF           MOV     R7,A
+    841            uint8 output = 0x00;
+   \   00000E   12....       LCALL   ?Subroutine12 & 0xFFFF
+    842            uint8 *data = 0;
+    843            if(ISendStr(0x48,0x03,&output,1))  //配置PCA9554寄存器
+   \                     ??CrossCallReturnLabel_11:
+   \   000011   607C         JZ      ??Relays_0
+    844            {
+    845              switch(relay)
+   \   000013   EE           MOV     A,R6
+   \   000014   14           DEC     A
+   \   000015   600B         JZ      ??Relays_1
+   \   000017   14           DEC     A
+   \   000018   6018         JZ      ??Relays_2
+   \   00001A   14           DEC     A
+   \   00001B   6025         JZ      ??Relays_3
+   \   00001D   14           DEC     A
+   \   00001E   6032         JZ      ??Relays_4
+   \   000020   8045         SJMP    ??Relays_5
+    846              {
+    847                case 1:                        
+    848                  if (operation)
+   \                     ??Relays_1:
+   \   000022   EF           MOV     A,R7
+   \   000023   90....       MOV     DPTR,#Relaystate
+   \   000026   6005         JZ      ??Relays_6
+    849                  {
+    850                    output = Relaystate & 0xfe;
+   \   000028   E0           MOVX    A,@DPTR
+   \   000029   54FE         ANL     A,#0xfe
+   \   00002B   8033         SJMP    ??Relays_7
+    851                  }
+    852                  else
+    853                  {
+    854                    output = Relaystate | 0x01;
+   \                     ??Relays_6:
+   \   00002D   E0           MOVX    A,@DPTR
+   \   00002E   4401         ORL     A,#0x1
+   \   000030   802E         SJMP    ??Relays_7
+    855                  }
+    856                break;
+    857                 case 2:                      
+    858                  if (operation)
+   \                     ??Relays_2:
+   \   000032   EF           MOV     A,R7
+   \   000033   90....       MOV     DPTR,#Relaystate
+   \   000036   6005         JZ      ??Relays_8
+    859                  {
+    860                    output = Relaystate & 0xfd;
+   \   000038   E0           MOVX    A,@DPTR
+   \   000039   54FD         ANL     A,#0xfd
+   \   00003B   8023         SJMP    ??Relays_7
+    861                  }
+    862                  else
+    863                  {
+    864                    output = Relaystate | 0x02;
+   \                     ??Relays_8:
+   \   00003D   E0           MOVX    A,@DPTR
+   \   00003E   4402         ORL     A,#0x2
+   \   000040   801E         SJMP    ??Relays_7
+    865                  }
+    866                break;
+    867                 case 3:                     
+    868                  if (operation)
+   \                     ??Relays_3:
+   \   000042   EF           MOV     A,R7
+   \   000043   90....       MOV     DPTR,#Relaystate
+   \   000046   6005         JZ      ??Relays_9
+    869                  {
+    870                    output = Relaystate & 0xfb;
+   \   000048   E0           MOVX    A,@DPTR
+   \   000049   54FB         ANL     A,#0xfb
+   \   00004B   8013         SJMP    ??Relays_7
+    871                  }
+    872                  else
+    873                  {
+    874                    output = Relaystate | 0x04;
+   \                     ??Relays_9:
+   \   00004D   E0           MOVX    A,@DPTR
+   \   00004E   4404         ORL     A,#0x4
+   \   000050   800E         SJMP    ??Relays_7
+    875                  }
+    876                break;
+    877                 case 4:                     
+    878                  if (operation)
+   \                     ??Relays_4:
+   \   000052   EF           MOV     A,R7
+   \   000053   90....       MOV     DPTR,#Relaystate
+   \   000056   6005         JZ      ??Relays_10
+    879                  {
+    880                    output = Relaystate & 0xf7;
+   \   000058   E0           MOVX    A,@DPTR
+   \   000059   54F7         ANL     A,#0xf7
+   \   00005B   8003         SJMP    ??Relays_7
+    881                  }
+    882                  else
+    883                  {
+    884                    output = Relaystate | 0x08;
+   \                     ??Relays_10:
+   \   00005D   E0           MOVX    A,@DPTR
+   \   00005E   4408         ORL     A,#0x8
+   \                     ??Relays_7:
+   \   000060   85..82       MOV     DPL,?XSP + 0
+   \   000063   85..83       MOV     DPH,?XSP + 1
+   \   000066   F0           MOVX    @DPTR,A
+    885                  }
+    886                break;
+    887                 
+    888          
+    889               default:break;
+    890              }
+    891              if(ISendStr(0x48,0x01,&output,1)) //写PCA9554输出寄存器
+   \                     ??Relays_5:
+   \   000067                ; Setup parameters for call to function ISendStr
+   \   000067   7B01         MOV     R3,#0x1
+   \   000069   85..82       MOV     DPL,?XSP + 0
+   \   00006C   85..83       MOV     DPH,?XSP + 1
+   \   00006F   AC82         MOV     R4,DPL
+   \   000071   AD83         MOV     R5,DPH
+   \   000073   7A01         MOV     R2,#0x1
+   \   000075   7948         MOV     R1,#0x48
+   \   000077   12....       LCALL   ??Subroutine36_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_97:
+   \   00007A   6013         JZ      ??Relays_0
+    892              {
+    893                if(IRcvByte(0x48,data))         //读PCA9554输出寄存器
+   \   00007C                ; Setup parameters for call to function IRcvByte
+   \   00007C   7A00         MOV     R2,#0x0
+   \   00007E   7B00         MOV     R3,#0x0
+   \   000080   7948         MOV     R1,#0x48
+   \   000082   12....       LCALL   ??Subroutine30_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_59:
+   \   000085   6008         JZ      ??Relays_0
+    894                {
+    895                  Relaystate = *data;
+   \   000087   900000       MOV     DPTR,#0x0
+   \   00008A   E0           MOVX    A,@DPTR
+   \   00008B   90....       MOV     DPTR,#Relaystate
+   \   00008E   F0           MOVX    @DPTR,A
+    896                }
+    897              }
+    898            }
+    899          }
+   \                     ??Relays_0:
+   \   00008F   02....       LJMP    ?Subroutine2 & 0xFFFF
+    900          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    901          void RelayInit(void)
+   \                     RelayInit:
+    902          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 1
+   \   000004   74FF         MOV     A,#-0x1
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    903            uint8 output = 0x00;
+   \   000009   12....       LCALL   ?Subroutine12 & 0xFFFF
+    904            uint8 *data = 0;
+    905            if(ISendStr(0x48,0x03,&output,1))  //写配置
+   \                     ??CrossCallReturnLabel_12:
+   \   00000C   6020         JZ      ??RelayInit_0
+    906            {
+    907              output = 0xbf;
+   \   00000E   85..82       MOV     DPL,?XSP + 0
+   \   000011   85..83       MOV     DPH,?XSP + 1
+   \   000014   74BF         MOV     A,#-0x41
+   \   000016   12....       LCALL   ?Subroutine13 & 0xFFFF
+    908              if(ISendStr(0x48,0x01,&output,1))
+   \                     ??CrossCallReturnLabel_14:
+   \   000019   6013         JZ      ??RelayInit_0
+    909              {
+    910                if(IRcvByte(0x48,data))
+   \   00001B                ; Setup parameters for call to function IRcvByte
+   \   00001B   7A00         MOV     R2,#0x0
+   \   00001D   7B00         MOV     R3,#0x0
+   \   00001F   7948         MOV     R1,#0x48
+   \   000021   12....       LCALL   ??Subroutine30_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_60:
+   \   000024   6008         JZ      ??RelayInit_0
+    911                {
+    912                  Relaystate = *data;
+   \   000026   900000       MOV     DPTR,#0x0
+   \   000029   E0           MOVX    A,@DPTR
+   \   00002A   90....       MOV     DPTR,#Relaystate
+   \   00002D   F0           MOVX    @DPTR,A
+    913                }
+    914              }
+    915            }
+    916          }
+   \                     ??RelayInit_0:
+   \   00002E                REQUIRE ?Subroutine0
+   \   00002E                ; // Fall through to label ?Subroutine0
+    917          
+    918          
+    919          /**************************************************************************************************
+    920           * 函数名称：s_write_byte
+    921           *
+    922           * 功能描述：从SHT10写一个字节
+    923           *
+    924           * 参    数：value -- 需写入的字节值
+    925           *
+    926           * 返 回 值：error -- 操作是否成功
+    927           **************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   E9           MOV     A,R1
+   \   000001   FE           MOV     R6,A
+   \   000002                REQUIRE ??Subroutine29_0
+   \   000002                ; // Fall through to label ??Subroutine29_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    928          char s_write_byte(unsigned char value)
+   \                     s_write_byte:
+    929          { 
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   12....       LCALL   ?Subroutine6 & 0xFFFF
+    930            unsigned char i,error=0;  
+    931            IO_DIR_PORT_PIN(1, 0, IO_OUT);      //时钟和数据IO设置为输出
+    932            IO_DIR_PORT_PIN(1, 1, IO_OUT);
+    933            for (i=0x80;i>0;i/=2)               //将一个字节的8位逐一输出        
+   \                     ??CrossCallReturnLabel_44:
+   \   000008   7F80         MOV     R7,#-0x80
+    934            {
+    935               if (i & value)
+   \                     ??s_write_byte_0:
+   \   00000A   EF           MOV     A,R7
+   \   00000B   5E           ANL     A,R6
+   \   00000C   6004         JZ      ??s_write_byte_1
+    936            	 SDA=1;          
+   \   00000E   D291         SETB    0x90.1
+   \   000010   8002         SJMP    ??s_write_byte_2
+    937               else
+    938              	 SDA=0;                        
+   \                     ??s_write_byte_1:
+   \   000012   C291         CLR     0x90.1
+    939              SCL = 1;                        
+   \                     ??s_write_byte_2:
+   \   000014   D290         SETB    0x90.0
+    940              QWait();QWait();QWait();QWait();QWait();
+   \   000016                ; Setup parameters for call to function QWait
+   \   000016   12....       LCALL   ?Subroutine3 & 0xFFFF
+    941              SCL = 0;
+    942              asm("NOP"); asm("NOP");
+    943            }
+   \                     ??CrossCallReturnLabel_1:
+   \   000019   EF           MOV     A,R7
+   \   00001A   C3           CLR     C
+   \   00001B   13           RRC     A
+   \   00001C   FF           MOV     R7,A
+   \   00001D   70EB         JNZ     ??s_write_byte_0
+    944            SDA = 1; 
+   \   00001F   D291         SETB    0x90.1
+    945            IO_DIR_PORT_PIN(1, 1, IO_IN);      //将数据线设置为输入，以准备接收SHT10的ACK
+   \   000021   53FEFD       ANL     0xfe,#0xfd
+    946            SCL = 1;  asm("NOP");                          
+   \   000024   D290         SETB    0x90.0
+   \   000026   00           NOP
+    947            error = SDA; 
+   \   000027   E590         MOV     A,0x90
+   \   000029   FF           MOV     R7,A
+    948            QWait();QWait();QWait();
+   \   00002A                ; Setup parameters for call to function QWait
+   \   00002A   12....       LCALL   ?Subroutine7 & 0xFFFF
+    949            IO_DIR_PORT_PIN(1, 1, IO_OUT);     //将数据线恢复为输出状态
+   \                     ??CrossCallReturnLabel_7:
+   \   00002D   43FE02       ORL     0xfe,#0x2
+    950            SDA = 1; 
+   \   000030   D291         SETB    0x90.1
+    951            SCL = 0;        
+   \   000032   C290         CLR     0x90.0
+    952            
+    953            return error;                                   
+   \   000034   EF           MOV     A,R7
+   \   000035   A2E1         MOV     C,0xE0 /* A   */.1
+   \   000037   E4           CLR     A
+   \   000038   33           RLC     A
+   \   000039   F9           MOV     R1,A
+   \   00003A   02....       LJMP    ??Subroutine28_0 & 0xFFFF
+   \   00003D                REQUIRE P1DIR
+   \   00003D                REQUIRE _A_P1
+    954          }
+    955          
+    956          /**************************************************************************************************
+    957           * 函数名称：s_read_byte
+    958           *
+    959           * 功能描述：从SHT10读取一个字节
+    960           *
+    961           * 参    数：ack -- 读取数据后，向SHT10发送ACK
+    962           *
+    963           * 返 回 值：val -- 读取的字节值
+    964           **************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    965          char s_read_byte(unsigned char ack)
+   \                     s_read_byte:
+    966          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   12....       LCALL   ?Subroutine6 & 0xFFFF
+    967            IO_DIR_PORT_PIN(1, 0, IO_OUT);     //时钟和数据IO设置为输出
+    968            IO_DIR_PORT_PIN(1, 1, IO_OUT);
+    969            unsigned char i,val=0;
+   \                     ??CrossCallReturnLabel_45:
+   \   000008   75..00       MOV     ?V0 + 0,#0x0
+    970            SDA= 1;
+   \   00000B   D291         SETB    0x90.1
+    971            IO_DIR_PORT_PIN(1, 1, IO_IN);      //将数据线设置为输入，以准备接收SHT10的数据
+   \   00000D   53FEFD       ANL     0xfe,#0xfd
+    972            for (i=0x80;i>0;i/=2) 
+   \   000010   7F80         MOV     R7,#-0x80
+    973            {
+    974              SCL = 1;
+   \                     ??s_read_byte_0:
+   \   000012   D290         SETB    0x90.0
+    975              if (SDA)
+   \   000014   A291         MOV     C,0x90.1
+   \   000016   5003         JNC     ??s_read_byte_1
+    976               val = (val | i);
+   \   000018   EF           MOV     A,R7
+   \   000019   42..         ORL     ?V0 + 0,A
+    977              else
+    978                val = (val | 0x00);
+    979              SCL = 0;
+   \                     ??s_read_byte_1:
+   \   00001B   C290         CLR     0x90.0
+    980              QWait();QWait();QWait();QWait();QWait();
+   \   00001D                ; Setup parameters for call to function QWait
+   \   00001D   12....       LCALL   ??Subroutine27_0 & 0xFFFF
+    981            }
+   \                     ??CrossCallReturnLabel_32:
+   \   000020   EF           MOV     A,R7
+   \   000021   C3           CLR     C
+   \   000022   13           RRC     A
+   \   000023   FF           MOV     R7,A
+   \   000024   70EC         JNZ     ??s_read_byte_0
+    982            IO_DIR_PORT_PIN(1, 1, IO_OUT);     //将数据线恢复为输出状态
+   \   000026   43FE02       ORL     0xfe,#0x2
+    983            SDA = !ack;
+   \   000029   EE           MOV     A,R6
+   \   00002A   7004         JNZ     ??s_read_byte_2
+   \   00002C   7401         MOV     A,#0x1
+   \   00002E   8001         SJMP    ??s_read_byte_3
+   \                     ??s_read_byte_2:
+   \   000030   E4           CLR     A
+   \                     ??s_read_byte_3:
+   \   000031   C3           CLR     C
+   \   000032   33           RLC     A
+   \   000033   F8           MOV     R0,A
+   \   000034   E590         MOV     A,0x90
+   \   000036   54FD         ANL     A,#0xfd
+   \   000038   48           ORL     A,R0
+   \   000039   F590         MOV     0x90,A
+    984            SCL = 1;
+   \   00003B   12....       LCALL   ?Subroutine4 & 0xFFFF
+    985            QWait();QWait();QWait();QWait();QWait();
+    986            SCL = 0;
+    987            SDA = 1;
+   \                     ??CrossCallReturnLabel_4:
+   \   00003E   D291         SETB    0x90.1
+    988            
+    989            return val;                       //返回读取的值
+   \   000040   A9..         MOV     R1,?V0 + 0
+   \   000042   02....       LJMP    ??Subroutine28_0 & 0xFFFF
+   \   000045                REQUIRE P1DIR
+   \   000045                REQUIRE _A_P1
+    990          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??QWait?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    QWait
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Start_I2c?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Start_I2c
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Stop_I2c?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Stop_I2c
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SendByte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SendByte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??RcvByte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    RcvByte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Ack_I2c?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Ack_I2c
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ISendByte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ISendByte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ISendStr?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ISendStr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??IRcvByte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    IRcvByte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??IRcvStr?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    IRcvStr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ledInit?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ledInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??FLASHLED?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    FLASHLED
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??FLASHLED4?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    FLASHLED4
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??FLASHLED5?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    FLASHLED5
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??LED?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    LED
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Buzzer?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Buzzer
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Relay?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Relay
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SRelay?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SRelay
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Key?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Key
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??write24L01?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    write24L01
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??read24L01byte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    read24L01byte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??VoltageOutput?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    VoltageOutput
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Relays?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Relays
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??RelayInit?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    RelayInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??s_write_byte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    s_write_byte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??s_read_byte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    s_read_byte
+    991          
+    992          
+    993          
+
+   Maximum stack usage in bytes:
+
+     Function       ISTACK PSTACK XSTACK
+     --------       ------ ------ ------
+     Ack_I2c            0      0     25
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+     Buzzer             1      0     10
+       -> ISendStr      0      0     20
+       -> ISendStr      0      0     20
+       -> IRcvByte      0      0     20
+     FLASHLED           1      0     10
+       -> ISendStr      0      0     20
+       -> ISendStr      0      0     20
+       -> IRcvByte      0      0     20
+     FLASHLED4          1      0     10
+       -> ISendStr      0      0     20
+       -> ISendStr      0      0     20
+       -> IRcvByte      0      0     20
+     FLASHLED5          1      0     10
+       -> ISendStr      0      0     20
+       -> ISendStr      0      0     20
+       -> IRcvByte      0      0     20
+     IRcvByte           1      0     19
+       -> Start_I2c     0      0     18
+       -> SendByte      0      0     18
+       -> RcvByte       0      0     18
+       -> Ack_I2c       0      0     18
+       -> Stop_I2c      0      0     18
+     IRcvStr            1      0     16
+       -> Start_I2c     0      0     32
+       -> SendByte      0      0     32
+       -> SendByte      0      0     32
+       -> Start_I2c     0      0     32
+       -> SendByte      0      0     32
+       -> RcvByte       0      0     32
+       -> Ack_I2c       0      0     32
+       -> RcvByte       0      0     32
+       -> Ack_I2c       0      0     32
+       -> Stop_I2c      0      0     32
+     ISendByte          0      0     18
+       -> Start_I2c     0      0     18
+       -> SendByte      0      0     18
+       -> SendByte      0      0     18
+       -> Stop_I2c      0      0     18
+     ISendStr           0      0     22
+       -> Start_I2c     0      0     24
+       -> SendByte      0      0     24
+       -> SendByte      0      0     24
+       -> SendByte      0      0     24
+       -> Stop_I2c      0      0     24
+     Key                2      0      1
+       -> ISendStr      4      0      2
+       -> ISendByte     4      0      2
+       -> IRcvByte      4      0      2
+     LED                1      0     10
+       -> ISendStr      0      0     20
+       -> ISendStr      0      0     20
+       -> IRcvByte      0      0     20
+     QWait              0      0     10
+     RcvByte            0      0     25
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+     Relay              1      0     10
+       -> ISendStr      0      0     20
+       -> ISendStr      0      0     20
+       -> IRcvByte      0      0     20
+     RelayInit          2      0      1
+       -> ISendStr      4      0      2
+       -> ISendStr      4      0      2
+       -> IRcvByte      4      0      2
+     Relays             1      0     10
+       -> ISendStr      0      0     20
+       -> ISendStr      0      0     20
+       -> IRcvByte      0      0     20
+     SRelay             1      0     10
+       -> ISendStr      0      0     20
+       -> ISendStr      0      0     20
+       -> IRcvByte      0      0     20
+     SendByte           0      0     26
+       -> QWait         0      0     20
+       -> QWait         0      0     20
+       -> QWait         0      0     20
+       -> QWait         0      0     20
+       -> QWait         0      0     20
+       -> QWait         0      0     20
+       -> QWait         0      0     20
+       -> QWait         0      0     20
+       -> QWait         0      0     20
+       -> QWait         0      0     20
+       -> QWait         0      0     20
+     Start_I2c          2      0     16
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+     Stop_I2c           2      0     16
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+       -> QWait         4      0      0
+     VoltageOutput      0      0      9
+       -> Start_I2c     0      0     18
+       -> SendByte      0      0     18
+       -> SendByte      0      0     18
+       -> SendByte      0      0     18
+       -> SendByte      0      0     18
+       -> Stop_I2c      0      0     18
+     ledInit            2      0      1
+       -> ISendStr      4      0      2
+       -> ISendStr      4      0      2
+       -> IRcvByte      4      0      2
+     read24L01byte      0      0      9
+       -> ISendByte     0      0     18
+       -> Start_I2c     0      0     18
+       -> SendByte      0      0     18
+       -> RcvByte       0      0     18
+       -> Ack_I2c       0      0     18
+       -> Stop_I2c      0      0     18
+     s_read_byte        0      0      9
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+     s_write_byte       0      0      9
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+       -> QWait         0      0     18
+     write24L01         0      0     10
+       -> ISendStr      0      0     20
+
+
+   Segment part sizes:
+
+     Function/Label        Bytes
+     --------------        -----
+     _A_P1                    1
+     P1DIR                    1
+     ack                      1
+     ledstate                 1
+     Relaystate               1
+     QWait                   14
+     Start_I2c               20
+     ?Subroutine5             3
+     ??Subroutine27_0         7
+     ?Subroutine23            4
+     ?Subroutine26            7
+     ?Subroutine22            4
+     ?Subroutine25            7
+     ??Subroutine29_0         7
+     ?Subroutine19            9
+     ??Subroutine37_0         7
+     ?Subroutine3             6
+     Stop_I2c                23
+     ?Subroutine7             4
+     SendByte                83
+     ?Subroutine1             5
+     ?Subroutine8             9
+     ?Subroutine4             6
+     RcvByte                 49
+     ??Subroutine28_0         5
+     Ack_I2c                 31
+     ISendByte               34
+     ?Subroutine10            1
+     ??Subroutine34_0         1
+     ??Subroutine35_0         8
+     ISendStr                79
+     IRcvByte                33
+     ?Subroutine14           14
+     ?Subroutine24           10
+     IRcvStr                108
+     ledInit                 38
+     ?Subroutine18            6
+     ??Subroutine30_0         5
+     ??Subroutine31_0        10
+     ?Subroutine20            7
+     ??Subroutine32_0        10
+     ?Subroutine16            9
+     ??Subroutine33_0        10
+     ?Subroutine21           10
+     ?Subroutine0             5
+     ?Subroutine2             5
+     FLASHLED               156
+     ?Subroutine9             2
+     ?Subroutine17           16
+     ??Subroutine36_0         5
+     FLASHLED4               48
+     ?Subroutine11            6
+     FLASHLED5               48
+     LED                    160
+     Buzzer                  45
+     Relay                   71
+     ?Subroutine15            4
+     SRelay                  54
+     ?Subroutine12           10
+     ?Subroutine13           10
+     Key                     60
+     write24L01              37
+     read24L01byte           47
+     VoltageOutput           58
+     Relays                 146
+     RelayInit               46
+     ?Subroutine6             2
+     s_write_byte            61
+     s_read_byte             69
+     ??QWait?relay            6
+     ??Start_I2c?relay        6
+     ??Stop_I2c?relay         6
+     ??SendByte?relay         6
+     ??RcvByte?relay          6
+     ??Ack_I2c?relay          6
+     ??ISendByte?relay        6
+     ??ISendStr?relay         6
+     ??IRcvByte?relay         6
+     ??IRcvStr?relay          6
+     ??ledInit?relay          6
+     ??FLASHLED?relay         6
+     ??FLASHLED4?relay        6
+     ??FLASHLED5?relay        6
+     ??LED?relay              6
+     ??Buzzer?relay           6
+     ??Relay?relay            6
+     ??SRelay?relay           6
+     ??Key?relay              6
+     ??write24L01?relay       6
+     ??read24L01byte?relay    6
+     ??VoltageOutput?relay    6
+     ??Relays?relay           6
+     ??RelayInit?relay        6
+     ??s_write_byte?relay     6
+     ??s_read_byte?relay      6
+
+ 
+ 1 874 bytes in segment BANKED_CODE
+   156 bytes in segment BANK_RELAYS
+     2 bytes in segment SFR_AN
+     3 bytes in segment XDATA_Z
+ 
+ 2 030 bytes of CODE  memory
+     0 bytes of DATA  memory (+ 2 bytes shared)
+     3 bytes of XDATA memory
+
+Errors: none
+Warnings: none
