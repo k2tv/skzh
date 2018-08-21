@@ -5,6 +5,6 @@ zigbee源码
 
 开发板android
 
-太大的文件，比如Android源码等没有上传
+太大的文件没有上传
 
 基于skzh试验箱
